@@ -14,14 +14,19 @@ namespace QGame
 
     public partial class DesignForm : Form
     {
-        private const int INIT_LEFT = 20;
-        private const int INIT_WIDTH = 50;
-        private const int INIT_HEIGHT = 50;
-        private const int INIT_TOP = 50;
-        private const int SQUAREGAP = 20;
+        /// <summary>
+        /// Initial Board positions.
+        /// </summary>
+        private const int InitLeft = 20;
+        private const int InitWidth = 50;
+        private const int InitHeight = 50;
+        private const int InitTop = 50;
+        private const int SquareGap = 20;
 
-        private PictureBox[,] square;
-
+        private PictureBox[,] _square;
+        /// <summary>
+        /// ENumeration containing Square types
+        /// </summary>
         enum SquareType
         {
             Blank,
@@ -35,7 +40,8 @@ namespace QGame
             GreenExit,
             YellowExit
         }
-        SquareType squaretype = SquareType.Blank;
+
+        private SquareType _squaretype = SquareType.Blank;
 
         private SaveFileDialog saveFile = new SaveFileDialog();
         private OpenFileDialog openFile = new OpenFileDialog();
@@ -43,22 +49,36 @@ namespace QGame
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// Initializes StreamWriter for SaveFileDialog
+        /// </summary>
+        /// <param name="fileName"></param>
         private void doSave(string fileName)
         {
             StreamWriter saveLevel = new StreamWriter(fileName);
         }
-
+        /// <summary>
+        /// initializes StreamReader for OpenFileDialog
+        /// </summary>
+        /// <param name="fileName"></param>
         private void doLoad(string fileName)
         {
             StreamReader reader = new StreamReader(fileName);
         }
-
+        /// <summary>
+        /// Exits program via tool strip button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
+        /// <summary>
+        /// Saves level via tool strip button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void saveLevelToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DialogResult result = saveFile.ShowDialog();
@@ -93,7 +113,11 @@ namespace QGame
                     break;
             }
         }
-
+        /// <summary>
+        /// Opens save file via tool strip button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void openLevelToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DialogResult result = openFile.ShowDialog();
@@ -128,7 +152,11 @@ namespace QGame
                     break;
             }
         }
-
+        /// <summary>
+        /// Creates a new column for every row indicated by the user.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnGenerate_Click(object sender, EventArgs e)
         {
             //Variable to hold the text for rows
@@ -137,13 +165,13 @@ namespace QGame
             int columnSquares = int.Parse(txtColumns.Text);
 
 
-            int xAxis = INIT_LEFT;
-            int yAxis = INIT_TOP;
+            int xAxis = InitLeft;
+            int yAxis = InitTop;
 
             //Generates new picturebox array that holds the textbox numbers
-            square = new PictureBox[columnSquares, rowSqaures];
+            _square = new PictureBox[columnSquares, rowSqaures];
 
-            //Creates a new column for every row indicated by the user.
+            
 
             //Generates a vertical line, with the number of squares coming from the user's input  
             for (int c = 0; c < columnSquares; c++)
@@ -151,31 +179,35 @@ namespace QGame
                 //Generates a horizontal line, with the number of squares coming from the user's input 
                 for (int r = 0; r < rowSqaures; r++)
                 {
-                    square[c, r] = new PictureBox();
+                    _square[c, r] = new PictureBox();
 
-                    square[c, r].Image = Properties.Resources.blank_square;
-                    square[c, r].Left = xAxis + grpToolbox.Width;
-                    square[c, r].Top = yAxis + txtColumns.Height;
-                    square[c, r].Width = INIT_WIDTH;
-                    square[c, r].Height = INIT_HEIGHT;
+                    _square[c, r].Image = Properties.Resources.blank_square;
+                    _square[c, r].Left = xAxis + grpToolbox.Width;
+                    _square[c, r].Top = yAxis + txtColumns.Height;
+                    _square[c, r].Width = InitWidth;
+                    _square[c, r].Height = InitHeight;
 
-                    this.Controls.Add(square[c, r]);
+                    this.Controls.Add(_square[c, r]);
 
                     //
-                    yAxis += SQUAREGAP + INIT_HEIGHT;
+                    yAxis += SquareGap + InitHeight;
 
                 }
-                xAxis += SQUAREGAP + INIT_WIDTH;
-                yAxis = INIT_TOP;
+                xAxis += SquareGap + InitWidth;
+                yAxis = InitTop;
 
             }
         }
-        //Activates red square toolbox button
+        /// <summary>
+        /// Activates red square toolbox button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnRedSquare_Click(object sender, EventArgs e)
         {
-            if (square[0, 0].Image != Properties.Resources.red_square)
+            if (_square[0, 0].Image != Properties.Resources.red_square)
             {
-                square[0, 0].Image = Properties.Resources.red_square;
+                _square[0, 0].Image = Properties.Resources.red_square;
             }
         }
     }

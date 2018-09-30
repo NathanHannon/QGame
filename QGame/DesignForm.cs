@@ -189,7 +189,6 @@ namespace QGame
 
                     this.Controls.Add(_square[c, r]);
 
-                    //
                     yAxis += SquareGap + InitHeight;
 
                 }

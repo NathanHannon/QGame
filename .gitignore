@@ -329,3 +329,5 @@ ASALocalRun/
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
 *.ntfs-3g-0000000008
+*.ntfs-3g-0000000004
+QGame/designForm.cs.ntfs-3g-0000000006

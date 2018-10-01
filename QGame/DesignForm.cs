@@ -208,7 +208,7 @@ namespace QGame
             catch (FormatException)
             {
 
-                MessageBox.Show("Please enter a number.", "Invalid Input!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(@"Please enter a number.", @"Invalid Input!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             
         }

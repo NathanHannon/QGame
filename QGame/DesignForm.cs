@@ -159,42 +159,51 @@ namespace QGame
         /// <param name="e"></param>
         private void btnGenerate_Click(object sender, EventArgs e)
         {
-            //Variable to hold the text for rows
-            int rowSqaures = int.Parse(txtRows.Text);
-            //Variable to hold the text for columns
-            int columnSquares = int.Parse(txtColumns.Text);
-
-
-            int xAxis = InitLeft;
-            int yAxis = InitTop;
-
-            //Generates new picturebox array that holds the textbox numbers
-            _square = new PictureBox[columnSquares, rowSqaures];
-
-            
-
-            //Generates a vertical line, with the number of squares coming from the user's input  
-            for (int c = 0; c < columnSquares; c++)
+            try
             {
-                //Generates a horizontal line, with the number of squares coming from the user's input 
-                for (int r = 0; r < rowSqaures; r++)
+                //Variable to hold the text for rows
+                int rowSqaures = int.Parse(txtRows.Text);
+                //Variable to hold the text for columns
+                int columnSquares = int.Parse(txtColumns.Text);
+
+
+                int xAxis = InitLeft;
+                int yAxis = InitTop;
+
+                //Generates new picturebox array that holds the textbox numbers
+                _square = new PictureBox[columnSquares, rowSqaures];
+
+
+
+                //Generates a vertical line, with the number of squares coming from the user's input  
+                for (int c = 0; c < columnSquares; c++)
                 {
-                    _square[c, r] = new PictureBox();
+                    //Generates a horizontal line, with the number of squares coming from the user's input 
+                    for (int r = 0; r < rowSqaures; r++)
+                    {
+                        _square[c, r] = new PictureBox();
 
-                    _square[c, r].Image = Properties.Resources.blank_square;
-                    _square[c, r].Left = xAxis + grpToolbox.Width;
-                    _square[c, r].Top = yAxis + txtColumns.Height;
-                    _square[c, r].Width = InitWidth;
-                    _square[c, r].Height = InitHeight;
+                        _square[c, r].Image = Properties.Resources.blank_square;
+                        _square[c, r].Left = xAxis + grpToolbox.Width;
+                        _square[c, r].Top = yAxis + txtColumns.Height;
+                        _square[c, r].Width = InitWidth;
+                        _square[c, r].Height = InitHeight;
 
-                    this.Controls.Add(_square[c, r]);
+                        this.Controls.Add(_square[c, r]);
 
-                    yAxis += SquareGap + InitHeight;
+                        yAxis += SquareGap + InitHeight;
+
+                    }
+                    xAxis += SquareGap + InitWidth;
+                    yAxis = InitTop;
 
                 }
-                xAxis += SquareGap + InitWidth;
-                yAxis = InitTop;
+            }
+            //Checks for valid formatting, and throws an error if the input isn't a digit.
+            catch (FormatException)
+            {
 
+                MessageBox.Show("Please enter a number.", "Invalid Input!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         /// <summary>
@@ -204,7 +213,7 @@ namespace QGame
         /// <param name="e"></param>
         private void btnRedSquare_Click(object sender, EventArgs e)
         {
-            if (_square[0, 0].Image != Properties.Resources.red_square)
+            if (_square[c, r].Image != Properties.Resources.red_square)
             {
                 _square[0, 0].Image = Properties.Resources.red_square;
             }

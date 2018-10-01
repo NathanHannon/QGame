@@ -219,13 +219,21 @@ namespace QGame
         /// <param name="e"></param>
         private void btnRedSquare_Click(object sender, EventArgs e)
         { 
+            // the following were placeholders until I could get dynamic array variables passed
             if (_square[0, 0].Image != Properties.Resources.red_square)
             {
                 _square[0, 0].Image = Properties.Resources.red_square;
             }
         }
-        //_square[c, r].Image != Properties.Resources.red_square
-
-        //_square[c, r].Image = Properties.Resources.red_square;
+        /*
+         * Could not figure out how to dynamically pass arary index variables
+         * _square[c, r].Image != Properties.Resources.red_square;
+         * _square[c, r].Image = Properties.Resources.red_square; 
+         *
+         */
+         /*
+          * could not figure out how to used picturebox click as part of if statement
+          * 
+          */
     }
 }

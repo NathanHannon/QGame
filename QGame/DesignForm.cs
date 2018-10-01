@@ -23,7 +23,8 @@ namespace QGame
         private const int InitTop = 50;
         private const int SquareGap = 20;
 
-        private PictureBox[,] _square;
+        private PictureBox[,] _square; 
+
         /// <summary>
         /// ENumeration containing Square types
         /// </summary>
@@ -49,6 +50,10 @@ namespace QGame
         {
             InitializeComponent();
         }
+ 
+        public int c { get; private set; }
+        public int r { get; private set; }
+
         /// <summary>
         /// Initializes StreamWriter for SaveFileDialog
         /// </summary>
@@ -176,10 +181,10 @@ namespace QGame
 
 
                 //Generates a vertical line, with the number of squares coming from the user's input  
-                for (int c = 0; c < columnSquares; c++)
+                for (c = 0; c < columnSquares; c++)
                 {
                     //Generates a horizontal line, with the number of squares coming from the user's input 
-                    for (int r = 0; r < rowSqaures; r++)
+                    for (r = 0; r < rowSqaures; r++)
                     {
                         _square[c, r] = new PictureBox();
 
@@ -189,14 +194,14 @@ namespace QGame
                         _square[c, r].Width = InitWidth;
                         _square[c, r].Height = InitHeight;
 
-                        this.Controls.Add(_square[c, r]);
+                       
+                        Controls.Add(_square[c, r]);
 
                         yAxis += SquareGap + InitHeight;
 
                     }
                     xAxis += SquareGap + InitWidth;
                     yAxis = InitTop;
-
                 }
             }
             //Checks for valid formatting, and throws an error if the input isn't a digit.
@@ -205,6 +210,7 @@ namespace QGame
 
                 MessageBox.Show("Please enter a number.", "Invalid Input!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            
         }
         /// <summary>
         /// Activates red square toolbox button
@@ -212,11 +218,14 @@ namespace QGame
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnRedSquare_Click(object sender, EventArgs e)
-        {
-            if (_square[c, r].Image != Properties.Resources.red_square)
+        { 
+            if (_square[0, 0].Image != Properties.Resources.red_square)
             {
                 _square[0, 0].Image = Properties.Resources.red_square;
             }
         }
+        //_square[c, r].Image != Properties.Resources.red_square
+
+        //_square[c, r].Image = Properties.Resources.red_square;
     }
 }

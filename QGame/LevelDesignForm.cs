@@ -251,6 +251,15 @@ namespace QGame
                     break;
             }
         }
+        private void btnBlank_Click(object sender, EventArgs e)
+        {
+            _squaretype = SquareType.Blank;
+        }
+
+        private void btnBrickWall_Click(object sender, EventArgs e)
+        {
+            _squaretype = SquareType.BrickWall;
+        }
 
         private void btnRedSquare_Click(object sender, EventArgs e)
         {
@@ -261,6 +270,40 @@ namespace QGame
         {
             _squaretype = SquareType.BlueSquare;
         }
+
+        private void btnGreenSquare_Click(object sender, EventArgs e)
+        {
+            _squaretype = SquareType.GreenSquare;
+        }
+
+        private void btnYellowSquare_Click(object sender, EventArgs e)
+        {
+            _squaretype = SquareType.YellowSquare;
+        }
+
+        private void btnRedExit_Click(object sender, EventArgs e)
+        {
+            _squaretype = SquareType.RedExit;
+        }
+
+        private void btnBlueExit_Click(object sender, EventArgs e)
+        {
+            _squaretype = SquareType.BlueExit;
+        }
+
+        private void btnGreenExit_Click(object sender, EventArgs e)
+        {
+            _squaretype = SquareType.GreenExit;
+        }
+
+        private void btnYellowExit_Click(object sender, EventArgs e)
+        {
+            _squaretype = SquareType.YellowExit;
+        }
+
+
+
+
         //TODO:Add events for other buttons when Visual Studio can be used.
     }
 }

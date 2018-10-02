@@ -33,7 +33,6 @@ namespace QGame
             this.strpMenu = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dlgSave = new System.Windows.Forms.SaveFileDialog();
             this.txtRows = new System.Windows.Forms.TextBox();
@@ -70,7 +69,6 @@ namespace QGame
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.saveToolStripMenuItem,
-            this.openToolStripMenuItem,
             this.closeToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
@@ -79,14 +77,14 @@ namespace QGame
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveLevelToolStripMenuItem_Click);
             // 
             // closeToolStripMenuItem
             // 
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.closeToolStripMenuItem.Text = "Close";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -164,6 +162,7 @@ namespace QGame
             this.btnYellowExit.Size = new System.Drawing.Size(60, 60);
             this.btnYellowExit.TabIndex = 16;
             this.btnYellowExit.UseVisualStyleBackColor = false;
+            this.btnYellowExit.Click += new System.EventHandler(this.btnYellowExit_Click);
             // 
             // btnYellowSquare
             // 
@@ -173,6 +172,7 @@ namespace QGame
             this.btnYellowSquare.Size = new System.Drawing.Size(60, 60);
             this.btnYellowSquare.TabIndex = 15;
             this.btnYellowSquare.UseVisualStyleBackColor = true;
+            this.btnYellowSquare.Click += new System.EventHandler(this.btnYellowSquare_Click);
             // 
             // btnGreenExit
             // 
@@ -183,6 +183,7 @@ namespace QGame
             this.btnGreenExit.Size = new System.Drawing.Size(60, 60);
             this.btnGreenExit.TabIndex = 14;
             this.btnGreenExit.UseVisualStyleBackColor = false;
+            this.btnGreenExit.Click += new System.EventHandler(this.btnGreenExit_Click);
             // 
             // btnGreenSquare
             // 
@@ -192,6 +193,7 @@ namespace QGame
             this.btnGreenSquare.Size = new System.Drawing.Size(60, 60);
             this.btnGreenSquare.TabIndex = 13;
             this.btnGreenSquare.UseVisualStyleBackColor = true;
+            this.btnGreenSquare.Click += new System.EventHandler(this.btnGreenSquare_Click);
             // 
             // btnBlueExit
             // 
@@ -202,6 +204,7 @@ namespace QGame
             this.btnBlueExit.Size = new System.Drawing.Size(60, 60);
             this.btnBlueExit.TabIndex = 12;
             this.btnBlueExit.UseVisualStyleBackColor = false;
+            this.btnBlueExit.Click += new System.EventHandler(this.btnBlueExit_Click);
             // 
             // btnBlueSquare
             // 
@@ -222,6 +225,7 @@ namespace QGame
             this.btnRedExit.Size = new System.Drawing.Size(60, 60);
             this.btnRedExit.TabIndex = 10;
             this.btnRedExit.UseVisualStyleBackColor = false;
+            this.btnRedExit.Click += new System.EventHandler(this.btnRedExit_Click);
             // 
             // btnRedSquare
             // 
@@ -242,6 +246,7 @@ namespace QGame
             this.btnBrickWall.Size = new System.Drawing.Size(60, 60);
             this.btnBrickWall.TabIndex = 8;
             this.btnBrickWall.UseVisualStyleBackColor = false;
+            this.btnBrickWall.Click += new System.EventHandler(this.btnBrickWall_Click);
             // 
             // btnBlank
             // 
@@ -251,6 +256,7 @@ namespace QGame
             this.btnBlank.Size = new System.Drawing.Size(60, 60);
             this.btnBlank.TabIndex = 7;
             this.btnBlank.UseVisualStyleBackColor = true;
+            this.btnBlank.Click += new System.EventHandler(this.btnBlank_Click);
             // 
             // LevelDesignForm
             // 
@@ -281,7 +287,6 @@ namespace QGame
         private System.Windows.Forms.MenuStrip strpMenu;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
         private System.Windows.Forms.SaveFileDialog dlgSave;
         private System.Windows.Forms.TextBox txtRows;

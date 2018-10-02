@@ -17,7 +17,7 @@ namespace QGame
         /// <param name="e"></param>
         private void btnDesign_Click(object sender, EventArgs e)
         {
-            var designForm = new DesignForm();
+            var designForm = new LevelDesignForm();
             designForm.Show();
         }
 

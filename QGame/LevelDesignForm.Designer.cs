@@ -1,7 +1,7 @@
 ﻿using System.Windows.Forms;
 namespace QGame
 {
-    partial class DesignForm
+    partial class LevelDesignForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace QGame
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DesignForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LevelDesignForm));
             this.strpMenu = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,8 +49,8 @@ namespace QGame
             this.btnBlueExit = new System.Windows.Forms.Button();
             this.btnBlueSquare = new System.Windows.Forms.Button();
             this.btnRedExit = new System.Windows.Forms.Button();
-            this.btnBrickWall = new System.Windows.Forms.Button();
             this.btnRedSquare = new System.Windows.Forms.Button();
+            this.btnBrickWall = new System.Windows.Forms.Button();
             this.btnBlank = new System.Windows.Forms.Button();
             this.strpMenu.SuspendLayout();
             this.grpToolbox.SuspendLayout();
@@ -82,13 +82,6 @@ namespace QGame
             this.saveToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveLevelToolStripMenuItem_Click);
-            // 
-            // openToolStripMenuItem
-            // 
-            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
-            this.openToolStripMenuItem.Text = "Open";
-            this.openToolStripMenuItem.Click += new System.EventHandler(this.openLevelToolStripMenuItem_Click);
             // 
             // closeToolStripMenuItem
             // 
@@ -218,6 +211,7 @@ namespace QGame
             this.btnBlueSquare.Size = new System.Drawing.Size(60, 60);
             this.btnBlueSquare.TabIndex = 11;
             this.btnBlueSquare.UseVisualStyleBackColor = true;
+            this.btnBlueSquare.Click += new System.EventHandler(this.btnBlueSquare_Click);
             // 
             // btnRedExit
             // 
@@ -229,16 +223,6 @@ namespace QGame
             this.btnRedExit.TabIndex = 10;
             this.btnRedExit.UseVisualStyleBackColor = false;
             // 
-            // btnBrickWall
-            // 
-            this.btnBrickWall.BackColor = System.Drawing.Color.White;
-            this.btnBrickWall.Image = global::QGame.Properties.Resources.brick_wall;
-            this.btnBrickWall.Location = new System.Drawing.Point(72, 19);
-            this.btnBrickWall.Name = "btnBrickWall";
-            this.btnBrickWall.Size = new System.Drawing.Size(60, 60);
-            this.btnBrickWall.TabIndex = 8;
-            this.btnBrickWall.UseVisualStyleBackColor = false;
-            // 
             // btnRedSquare
             // 
             this.btnRedSquare.Image = global::QGame.Properties.Resources.red_square;
@@ -249,6 +233,16 @@ namespace QGame
             this.btnRedSquare.UseVisualStyleBackColor = true;
             this.btnRedSquare.Click += new System.EventHandler(this.btnRedSquare_Click);
             // 
+            // btnBrickWall
+            // 
+            this.btnBrickWall.BackColor = System.Drawing.Color.White;
+            this.btnBrickWall.Image = global::QGame.Properties.Resources.brick_wall;
+            this.btnBrickWall.Location = new System.Drawing.Point(72, 19);
+            this.btnBrickWall.Name = "btnBrickWall";
+            this.btnBrickWall.Size = new System.Drawing.Size(60, 60);
+            this.btnBrickWall.TabIndex = 8;
+            this.btnBrickWall.UseVisualStyleBackColor = false;
+            // 
             // btnBlank
             // 
             this.btnBlank.Image = global::QGame.Properties.Resources.blank_square;
@@ -258,7 +252,7 @@ namespace QGame
             this.btnBlank.TabIndex = 7;
             this.btnBlank.UseVisualStyleBackColor = true;
             // 
-            // DesignForm
+            // LevelDesignForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -272,7 +266,7 @@ namespace QGame
             this.Controls.Add(this.strpMenu);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.strpMenu;
-            this.Name = "DesignForm";
+            this.Name = "LevelDesignForm";
             this.Text = "Level Editor";
             this.strpMenu.ResumeLayout(false);
             this.strpMenu.PerformLayout();

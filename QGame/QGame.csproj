@@ -45,17 +45,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DesignForm.cs">
+    <Compile Include="LevelDesignForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DesignForm.Designer.cs">
-      <DependentUpon>DesignForm.cs</DependentUpon>
+    <Compile Include="LevelDesignForm.Designer.cs">
+      <DependentUpon>LevelDesignForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="mainMenuForm.cs">
+    <Compile Include="MainMenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="mainMenuForm.Designer.cs">
-      <DependentUpon>mainMenuForm.cs</DependentUpon>
+    <Compile Include="MainMenuForm.Designer.cs">
+      <DependentUpon>MainMenuForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -64,11 +64,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="DesignForm.resx">
-      <DependentUpon>DesignForm.cs</DependentUpon>
+    <EmbeddedResource Include="LevelDesignForm.resx">
+      <DependentUpon>LevelDesignForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="mainMenuForm.resx">
-      <DependentUpon>mainMenuForm.cs</DependentUpon>
+    <EmbeddedResource Include="MainMenuForm.resx">
+      <DependentUpon>MainMenuForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

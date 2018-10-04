@@ -11,7 +11,7 @@ namespace QGame
         }
 
         /// <summary>
-        ///     Opens a new window to create/edit a level.
+        /// Opens a new window to create/edit a level.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -23,7 +23,7 @@ namespace QGame
         }
 
         /// <summary>
-        ///     Quits Application.
+        /// Quits Application.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -33,6 +33,11 @@ namespace QGame
             Application.Exit();
         }
 
+        /// <summary>
+        /// Opens a window to start playing.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnPlay_Click(object sender, EventArgs e)
         {
             var playForm = new PlayGameForm();

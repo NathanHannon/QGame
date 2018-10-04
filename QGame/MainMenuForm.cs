@@ -18,6 +18,7 @@ namespace QGame
         private void btnDesign_Click(object sender, EventArgs e)
         {
             var designForm = new LevelDesignForm();
+            this.Hide();
             designForm.Show();
         }
 
@@ -30,6 +31,13 @@ namespace QGame
         {
             //Closes Application
             Application.Exit();
+        }
+
+        private void btnPlay_Click(object sender, EventArgs e)
+        {
+            var playForm = new PlayGameForm();
+            this.Hide();
+            playForm.Show();
         }
     }
 }

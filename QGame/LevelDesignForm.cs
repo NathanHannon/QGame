@@ -161,6 +161,17 @@ namespace QGame
             }
         }
         /// <summary>
+        /// Returns to the main menu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void returnToMainMenuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var mainMenu = new MainMenuForm();
+            this.Hide();
+            mainMenu.Show();
+        }
+        /// <summary>
         /// Creates a new column for every row indicated by the user.
         /// </summary>
         /// <param name="sender"></param>
@@ -300,10 +311,5 @@ namespace QGame
         {
             _squaretype = SquareType.YellowExit;
         }
-
-
-
-
-        //TODO:Add events for other buttons when Visual Studio can be used.
     }
 }

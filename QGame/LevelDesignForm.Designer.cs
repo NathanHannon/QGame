@@ -51,6 +51,7 @@ namespace QGame
             this.btnRedSquare = new System.Windows.Forms.Button();
             this.btnBrickWall = new System.Windows.Forms.Button();
             this.btnBlank = new System.Windows.Forms.Button();
+            this.returnToMainMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.strpMenu.SuspendLayout();
             this.grpToolbox.SuspendLayout();
             this.SuspendLayout();
@@ -69,6 +70,7 @@ namespace QGame
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.saveToolStripMenuItem,
+            this.returnToMainMenuToolStripMenuItem,
             this.closeToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
@@ -77,15 +79,15 @@ namespace QGame
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.saveToolStripMenuItem.Text = "Save";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.saveToolStripMenuItem.Text = "Save Level";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveLevelToolStripMenuItem_Click);
             // 
             // closeToolStripMenuItem
             // 
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.closeToolStripMenuItem.Text = "Close";
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.closeToolStripMenuItem.Text = "Close Program";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // dlgSave
@@ -258,6 +260,13 @@ namespace QGame
             this.btnBlank.UseVisualStyleBackColor = true;
             this.btnBlank.Click += new System.EventHandler(this.btnBlank_Click);
             // 
+            // returnToMainMenuToolStripMenuItem
+            // 
+            this.returnToMainMenuToolStripMenuItem.Name = "returnToMainMenuToolStripMenuItem";
+            this.returnToMainMenuToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.returnToMainMenuToolStripMenuItem.Text = "Return to Main Menu";
+            this.returnToMainMenuToolStripMenuItem.Click += new System.EventHandler(this.returnToMainMenuToolStripMenuItem_Click);
+            // 
             // LevelDesignForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -305,5 +314,6 @@ namespace QGame
         private System.Windows.Forms.Button btnRedSquare;
         private System.Windows.Forms.Button btnBrickWall;
         private System.Windows.Forms.Button btnBlank;
+        private ToolStripMenuItem returnToMainMenuToolStripMenuItem;
     }
 }

@@ -11,18 +11,19 @@ namespace QGame
         }
 
         /// <summary>
-        ///     Opens a new window to create/edit a level.
+        /// Opens a new window to create/edit a level.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnDesign_Click(object sender, EventArgs e)
         {
             var designForm = new LevelDesignForm();
+            this.Hide();
             designForm.Show();
         }
 
         /// <summary>
-        ///     Quits Application.
+        /// Quits Application.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -32,9 +33,16 @@ namespace QGame
             Application.Exit();
         }
 
+        /// <summary>
+        /// Opens a window to start playing.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnPlay_Click(object sender, EventArgs e)
         {
-
+            var playForm = new PlayGameForm();
+            this.Hide();
+            playForm.Show();
         }
     }
 }

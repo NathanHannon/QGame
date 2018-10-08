@@ -34,7 +34,13 @@
             this.loadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.returnToMainMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnDown = new System.Windows.Forms.Button();
+            this.btnRight = new System.Windows.Forms.Button();
+            this.grpControlPad = new System.Windows.Forms.GroupBox();
+            this.btnUp = new System.Windows.Forms.Button();
+            this.btnLeft = new System.Windows.Forms.Button();
             this.strpMenu.SuspendLayout();
+            this.grpControlPad.SuspendLayout();
             this.SuspendLayout();
             // 
             // strpMenu
@@ -78,17 +84,71 @@
             this.closeToolStripMenuItem.Text = "Close Program";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             // 
+            // btnDown
+            // 
+            this.btnDown.Image = global::QGame.Properties.Resources.down_arrow;
+            this.btnDown.Location = new System.Drawing.Point(31, 115);
+            this.btnDown.Name = "btnDown";
+            this.btnDown.Size = new System.Drawing.Size(50, 42);
+            this.btnDown.TabIndex = 2;
+            this.btnDown.UseVisualStyleBackColor = true;
+            this.btnDown.Click += new System.EventHandler(this.btnDown_Click);
+            // 
+            // btnRight
+            // 
+            this.btnRight.Image = global::QGame.Properties.Resources.right_arrow;
+            this.btnRight.Location = new System.Drawing.Point(6, 67);
+            this.btnRight.Name = "btnRight";
+            this.btnRight.Size = new System.Drawing.Size(50, 42);
+            this.btnRight.TabIndex = 5;
+            this.btnRight.UseVisualStyleBackColor = true;
+            // 
+            // grpControlPad
+            // 
+            this.grpControlPad.Controls.Add(this.btnUp);
+            this.grpControlPad.Controls.Add(this.btnRight);
+            this.grpControlPad.Controls.Add(this.btnLeft);
+            this.grpControlPad.Controls.Add(this.btnDown);
+            this.grpControlPad.Location = new System.Drawing.Point(12, 275);
+            this.grpControlPad.Name = "grpControlPad";
+            this.grpControlPad.Size = new System.Drawing.Size(111, 163);
+            this.grpControlPad.TabIndex = 6;
+            this.grpControlPad.TabStop = false;
+            this.grpControlPad.Text = "Control Pad";
+            // 
+            // btnUp
+            // 
+            this.btnUp.Image = global::QGame.Properties.Resources.up_arrow;
+            this.btnUp.Location = new System.Drawing.Point(31, 19);
+            this.btnUp.Name = "btnUp";
+            this.btnUp.Size = new System.Drawing.Size(50, 42);
+            this.btnUp.TabIndex = 7;
+            this.btnUp.UseVisualStyleBackColor = true;
+            this.btnUp.Click += new System.EventHandler(this.btnUp_Click);
+            // 
+            // btnLeft
+            // 
+            this.btnLeft.Image = global::QGame.Properties.Resources.left_arrow;
+            this.btnLeft.Location = new System.Drawing.Point(55, 67);
+            this.btnLeft.Name = "btnLeft";
+            this.btnLeft.Size = new System.Drawing.Size(50, 42);
+            this.btnLeft.TabIndex = 3;
+            this.btnLeft.UseVisualStyleBackColor = true;
+            this.btnLeft.Click += new System.EventHandler(this.btnLeft_Click);
+            // 
             // PlayGameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.grpControlPad);
             this.Controls.Add(this.strpMenu);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PlayGameForm";
             this.Text = "QGame";
             this.strpMenu.ResumeLayout(false);
             this.strpMenu.PerformLayout();
+            this.grpControlPad.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -101,5 +161,10 @@
         private System.Windows.Forms.ToolStripMenuItem loadToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem returnToMainMenuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
+        private System.Windows.Forms.Button btnDown;
+        private System.Windows.Forms.Button btnLeft;
+        private System.Windows.Forms.Button btnRight;
+        private System.Windows.Forms.GroupBox grpControlPad;
+        private System.Windows.Forms.Button btnUp;
     }
 }

@@ -32,9 +32,8 @@ namespace QGame
             //Closes Application
             Application.Exit();
         }
-
         /// <summary>
-        /// Opens a window to start playing.
+        /// Starts the Game
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

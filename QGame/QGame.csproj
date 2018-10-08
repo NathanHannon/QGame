@@ -126,5 +126,17 @@
   <ItemGroup>
     <None Include="Images\exit-yellow.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\up-arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\down-arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\left-arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\right-arrow.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

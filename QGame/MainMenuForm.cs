@@ -31,5 +31,10 @@ namespace QGame
             //Closes Application
             Application.Exit();
         }
+
+        private void btnPlay_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

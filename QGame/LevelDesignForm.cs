@@ -219,6 +219,7 @@ namespace QGame
             switch (_squaretype)
             {
                 case SquareType.Blank:
+                    p.Image = Properties.Resources.blank_square;
                     break;
                 case SquareType.BrickWall:
                     p.Image = Properties.Resources.brick_wall;
@@ -227,7 +228,7 @@ namespace QGame
                     p.Image = Properties.Resources.red_square;
                     break;
                 case SquareType.BlueSquare:
-                    p.Image = Properties.Resources.blank_square;
+                    p.Image = Properties.Resources.blue_square;
                     break;
                 case SquareType.GreenSquare:
                     p.Image = Properties.Resources.green_square;

@@ -23,12 +23,12 @@ namespace QGame
         private const int InitTop = 50;
         private const int SquareGap = 20;
 
-        private PictureBox[,] _square;
-        private int _rowSqaures;
-        private int _columnSquares;
+        public static PictureBox[,] _square;
+        public static int _rowSqaures;
+        public static int _columnSquares;
         
         /// <summary>
-        /// ENumeration containing Square types
+        /// Enumeration containing Square types
         /// </summary>
         enum SquareType
         {

@@ -96,7 +96,7 @@ namespace QGame
             DialogResult result = openFile.ShowDialog();
             openFile.Filter = "Text Files (*.txt|*.txt";
             openFile.DefaultExt = "txt";
-            OpenFile.AddExtension = true;
+            openFile.AddExtension = true;
             switch (result)
             {
                 case DialogResult.None:

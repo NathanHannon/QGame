@@ -109,7 +109,7 @@ namespace QGame
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(@"Error loading file!");
+                        MessageBox.Show(@"Please choose a file to load!",@"Error loading file!", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
                     }
                     break;
                 case DialogResult.Cancel:

@@ -144,7 +144,7 @@ namespace QGame
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(@"Error saving file!");
+                        MessageBox.Show(@"Please enter a save file name!", @"Error saving file!", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
                     }
                     break;
                 case DialogResult.Cancel:

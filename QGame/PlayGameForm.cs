@@ -46,7 +46,7 @@ namespace QGame
         private void loadToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DialogResult result = openFile.ShowDialog();
-            openFile.Filter = "Text Files (*.txt|*.txt";
+            openFile.Filter = "Text Files (*.txt|*.txt)";
             openFile.DefaultExt = "txt";
             openFile.AddExtension = true;
 

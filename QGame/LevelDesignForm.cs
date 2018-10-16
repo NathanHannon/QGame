@@ -36,9 +36,9 @@ namespace QGame
         private const int InitTop = 50;
         private const int SquareGap = 20;
 
-        public static Tile[,] _square;
-        public static int _rowSqaures;
-        public static int _columnSquares;
+        public Tile[,] _square;
+        public int _rowSqaures;
+        public int _columnSquares;
         
         /// <summary>
         /// Enumeration containing Square types

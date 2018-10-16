@@ -39,57 +39,8 @@ namespace QGame
         private void DoLoad(string fileName)
         {
             StreamReader loadLevel = new StreamReader(fileName);
-
-            for (int i = 0; i < LevelDesignForm._rowSqaures; i++)
-            {
-                for (int j = 0; j < LevelDesignForm._columnSquares; j++)
-                {
-                    String line;
-                    while ((line = loadLevel.ReadLine()) != null)
-                    {
-                        if (LevelDesignForm._square[i, j].Image == Properties.Resources.blank_square)
-                        {
-                            Controls.Remove(LevelDesignForm._square[i, j]);
-                        }
-                        else if (LevelDesignForm._square[i, j].Image == Properties.Resources.brick_wall)
-                        {
-                            loadLevel.ReadLine();
-                        }
-                        else if (LevelDesignForm._square[i, j].Image == Properties.Resources.red_square)
-                        {
-                            loadLevel.ReadLine();
-                        }
-                        else if (LevelDesignForm._square[i, j].Image == Properties.Resources.blue_square)
-                        {
-                            loadLevel.ReadLine();
-                        }
-                        else if (LevelDesignForm._square[i, j].Image == Properties.Resources.green_square)
-                        {
-                            loadLevel.ReadLine();
-                        }
-                        else if (LevelDesignForm._square[i, j].Image == Properties.Resources.yellow_square)
-                        {
-                            loadLevel.ReadLine();
-                        }
-                        else if (LevelDesignForm._square[i, j].Image == Properties.Resources.exit_red)
-                        {
-                            loadLevel.ReadLine();
-                        }
-                        else if (LevelDesignForm._square[i, j].Image == Properties.Resources.exit_blue)
-                        {
-                            loadLevel.ReadLine();
-                        }
-                        else if (LevelDesignForm._square[i, j].Image == Properties.Resources.exit_green)
-                        {
-                            loadLevel.ReadLine();
-                        }
-                        else if (LevelDesignForm._square[i, j].Image == Properties.Resources.exit_yellow)
-                        {
-                            loadLevel.ReadLine();
-                        }
-                    }
-                }
-            }
+            string file = loadLevel.ReadToEnd();
+            loadLevel.Close();
         }
         private void loadToolStripMenuItem_Click(object sender, EventArgs e)
         {

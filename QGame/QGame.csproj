@@ -70,6 +70,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Tile.cs" />
     <EmbeddedResource Include="LevelDesignForm.resx">
       <DependentUpon>LevelDesignForm.cs</DependentUpon>
     </EmbeddedResource>

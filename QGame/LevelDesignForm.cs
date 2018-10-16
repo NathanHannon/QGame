@@ -11,6 +11,19 @@ using System.IO;
 
 namespace QGame
 {
+    public enum SquareType
+    {
+        Blank,
+        BrickWall,
+        RedSquare,
+        BlueSquare,
+        GreenSquare,
+        YellowSquare,
+        RedExit,
+        BlueExit,
+        GreenExit,
+        YellowExit
+    }
 
     public partial class LevelDesignForm : Form
     {
@@ -23,26 +36,14 @@ namespace QGame
         private const int InitTop = 50;
         private const int SquareGap = 20;
 
-        public static PictureBox[,] _square;
+        public static Tile[,] _square;
         public static int _rowSqaures;
         public static int _columnSquares;
         
         /// <summary>
         /// Enumeration containing Square types
         /// </summary>
-        enum SquareType
-        {
-            Blank,
-            BrickWall,
-            RedSquare,
-            BlueSquare,
-            GreenSquare,
-            YellowSquare,
-            RedExit,
-            BlueExit,
-            GreenExit,
-            YellowExit
-        }
+        
 
         private SquareType _squaretype = SquareType.Blank;
 
@@ -69,48 +70,11 @@ namespace QGame
                 {
                     saveLevel.WriteLine(i);
                     saveLevel.WriteLine(j);
-                    if (_square[i,j].Image == Properties.Resources.blank_square)
-                    {
-                        saveLevel.WriteLine((int)SquareType.Blank);
-                    }
-                    else if (_square[i,j].Image == Properties.Resources.brick_wall)
-                    {
-                        saveLevel.WriteLine((int)SquareType.BrickWall);
-                    }
-                    else if(_square[i, j].Image == Properties.Resources.red_square)
-                    {
-                        saveLevel.WriteLine((int)SquareType.RedSquare);
-                    }
-                    else if(_square[i, j].Image == Properties.Resources.blue_square)
-                    {
-                        saveLevel.WriteLine((int)SquareType.BlueSquare);       
-                    }
-                    else if(_square[i, j].Image == Properties.Resources.green_square)
-                    {
-                        saveLevel.WriteLine((int)SquareType.GreenSquare);       
-                    }
-                    else if(_square[i, j].Image == Properties.Resources.yellow_square)
-                    {
-                        saveLevel.WriteLine((int)SquareType.YellowSquare);       
-                    }
-                    else if(_square[i, j].Image == Properties.Resources.exit_red)
-                    {
-                        saveLevel.WriteLine((int)SquareType.RedExit);       
-                    }
-                    else if(_square[i, j].Image == Properties.Resources.exit_blue)
-                    {
-                        saveLevel.WriteLine((int)SquareType.BlueExit);       
-                    }
-                    else if(_square[i, j].Image == Properties.Resources.exit_green)
-                    {
-                        saveLevel.WriteLine((int)SquareType.GreenExit);       
-                    }
-                    else if(_square[i, j].Image == Properties.Resources.exit_yellow)
-                    {
-                        saveLevel.WriteLine((int)SquareType.YellowExit);       
-                    }
+                    saveLevel.WriteLine((int)_square[i, j].squareType);
                 }
             }
+            saveLevel.Close();
+            MessageBox.Show("Game Saved Successfully!", "Game Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         /// <summary>
         /// Exits program via tool strip button
@@ -129,7 +93,7 @@ namespace QGame
         private void saveLevelToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DialogResult result = saveFile.ShowDialog();
-            saveFile.Filter = "Text Files (*.txt|*.txt";
+            saveFile.Filter = "Text Files (*.txt|*.txt)";
             saveFile.DefaultExt = "txt";
             saveFile.AddExtension = true;
             switch (result)
@@ -192,25 +156,31 @@ namespace QGame
                 int yAxis = InitTop;
 
                 //Generates new picturebox array that holds the textbox numbers
-                _square = new PictureBox[_columnSquares, _rowSqaures];
+                _square = new Tile[_columnSquares, _rowSqaures];
 
                 //Generates a vertical line, with the number of squares coming from the user's input  
-                for (int c = 0; c < _columnSquares; c++)
+                for (int r = 0; r < _rowSqaures; r++)
                 {
                     //Generates a horizontal line, with the number of squares coming from the user's input 
-                    for (int r = 0; r < _rowSqaures; r++)
-                    {
-                        _square[c, r] = new PictureBox();
+                    
+                        for (int c = 0; c < _columnSquares; c++)
+                        {
+                        _square[r, c] = new Tile();
 
-                        _square[c, r].Image = Properties.Resources.blank_square;
-                        _square[c, r].Left = xAxis + grpToolbox.Width;
-                        _square[c, r].Top = yAxis + txtColumns.Height;
-                        _square[c, r].Width = InitWidth;
-                        _square[c, r].Height = InitHeight;
-                        _square[c, r].Click += square_click;
+                        _square[r, c].Image = Properties.Resources.blank_square;
+                        _square[r, c].Left = xAxis + grpToolbox.Width;
+                        _square[r, c].Top = yAxis + txtColumns.Height;
+                        _square[r, c].Width = InitWidth;
+                        _square[r, c].Height = InitHeight;
+                        _square[r, c].row = r;
+                        _square[r, c].col = c;
+                        _square[r, c].squareType = SquareType.Blank;
+
+
+                        _square[r, c].Click += square_click;
 
                        
-                        Controls.Add(_square[c, r]);
+                        Controls.Add(_square[r, c]);
 
                         yAxis += SquareGap + InitHeight;
 
@@ -229,7 +199,8 @@ namespace QGame
 
         private void square_click(object sender, EventArgs e)
         {
-            PictureBox p = (PictureBox)sender;
+           Tile p = (Tile)sender;
+            p.squareType = _squaretype;
             switch (_squaretype)
             {
                 case SquareType.Blank:

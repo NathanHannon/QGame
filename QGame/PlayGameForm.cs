@@ -155,5 +155,10 @@ namespace QGame
         {
 
         }
+
+        private void btnRight_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

@@ -102,6 +102,7 @@
             this.btnRight.Size = new System.Drawing.Size(50, 42);
             this.btnRight.TabIndex = 5;
             this.btnRight.UseVisualStyleBackColor = true;
+            this.btnRight.Click += new System.EventHandler(this.btnRight_Click);
             // 
             // grpControlPad
             // 

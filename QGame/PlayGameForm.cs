@@ -42,42 +42,16 @@ namespace QGame
             string file = loadLevel.ReadToEnd();
             loadLevel.Close();
         }
+
         private void loadToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DialogResult result = openFile.ShowDialog();
             openFile.Filter = "Text Files (*.txt|*.txt";
             openFile.DefaultExt = "txt";
             openFile.AddExtension = true;
-            switch (result)
-            {
-                case DialogResult.None:
-                    break;
-                case DialogResult.OK:
-                    try
-                    {
-                        string fileName = openFile.FileName;
-                        DoLoad(fileName);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(@"Please choose a file to load!",@"Error loading file!", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
-                    }
-                    break;
-                case DialogResult.Cancel:
-                    break;
-                case DialogResult.Abort:
-                    break;
-                case DialogResult.Retry:
-                    break;
-                case DialogResult.Ignore:
-                    break;
-                case DialogResult.Yes:
-                    break;
-                case DialogResult.No:
-                    break;
-                default:
-                    break;
-            }
+
+            string fileName = openFile.FileName;
+            DoLoad(fileName);
         }
 
         private void returnToMainMenuToolStripMenuItem_Click(object sender, EventArgs e)

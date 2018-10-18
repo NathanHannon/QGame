@@ -47,7 +47,7 @@ namespace QGame
 
                 while ((line = loadLevel.ReadLine()) != null)
                 {
-
+                    counter++;
                 }
 
             }

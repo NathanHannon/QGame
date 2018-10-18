@@ -33,14 +33,23 @@ namespace QGame
             GreenExit,
             YellowExit
         }
-
+        public Tile[,] _loadedTile;
+        int row;
+        int col;
         private SquareType _squaretype = SquareType.Blank;
 
         private void DoLoad(string fileName)
         {
-            StreamReader loadLevel = new StreamReader(fileName);
-            string file = loadLevel.ReadToEnd();
-            loadLevel.Close();
+            try
+            {
+                String input = File.ReadAllText(fileName);
+                _loadedTile = new Tile[row,col];
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(@"Please enter a file name!", @"Error loading file!", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+            }
+
         }
 
         private void loadToolStripMenuItem_Click(object sender, EventArgs e)

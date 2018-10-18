@@ -34,16 +34,22 @@ namespace QGame
             YellowExit
         }
         public Tile[,] _loadedTile;
-        int row;
-        int col;
         private SquareType _squaretype = SquareType.Blank;
-
+        int a;
+        int z;
         private void DoLoad(string fileName)
         {
             try
             {
-                String input = File.ReadAllText(fileName);
-                _loadedTile = new Tile[row,col];
+                int counter = 0;
+                string line;
+                StreamReader loadLevel = new StreamReader(fileName);
+
+                while ((line = loadLevel.ReadLine()) != null)
+                {
+
+                }
+
             }
             catch (Exception ex)
             {

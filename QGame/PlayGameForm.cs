@@ -11,9 +11,9 @@ using System.IO;
 
 namespace QGame
 {
+
     public partial class PlayGameForm : Form
     {
-        private OpenFileDialog openFile = new OpenFileDialog();
 
         public PlayGameForm()
         {
@@ -35,27 +35,17 @@ namespace QGame
         }
         public Tile[,] _loadedTile;
         private SquareType _squaretype = SquareType.Blank;
-        int a;
-        int z;
+        private OpenFileDialog openFile = new OpenFileDialog();
+        /// <summary>
+        /// Load file function
+        /// </summary>
+        /// <param name="fileName"></param>
         private void DoLoad(string fileName)
         {
-            try
-            {
-                int counter = 0;
-                string line;
-                StreamReader loadLevel = new StreamReader(fileName);
 
-                while ((line = loadLevel.ReadLine()) != null)
-                {
-                    counter++;
-                }
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(@"Please enter a file name!", @"Error loading file!", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
-            }
-
+            StreamReader openFile = new StreamReader(fileName);
+            openFile.ReadLine();
+            
         }
 
         private void loadToolStripMenuItem_Click(object sender, EventArgs e)
@@ -64,9 +54,26 @@ namespace QGame
             openFile.Filter = "Text Files (*.txt|*.txt)";
             openFile.DefaultExt = "txt";
             openFile.AddExtension = true;
+            switch (result)
+            {
+                case DialogResult.None:
+                    break;
+                case DialogResult.OK:
+                    try
+                    {
+                        string fileName = openFile.FileName;
+                        DoLoad(fileName);
 
-            string fileName = openFile.FileName;
-            DoLoad(fileName);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(@"Please enter a file name!", @"Error saving file!", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                    }
+                    break;
+                case DialogResult.Cancel:
+                    break;
+            }
+
         }
 
         private void returnToMainMenuToolStripMenuItem_Click(object sender, EventArgs e)

@@ -24,7 +24,7 @@ namespace QGame
         private SquareType _squaretype = SquareType.Blank;
         private OpenFileDialog openFile = new OpenFileDialog();
         private Tile player = new Tile();
-
+        private Tile wall = new Tile();
 
         /// <summary>
         /// Load file function
@@ -87,42 +87,42 @@ namespace QGame
 
         private void btnLeft_Click(object sender, EventArgs e)
         {
-            switch (_squaretype)
+            player.Left += 20;
+            if (player.Bounds.IntersectsWith(wall.Bounds))
             {
-                case SquareType.Blank:
-                    player.Image = Properties.Resources.blank_square;
-                    break;
-                case SquareType.BrickWall:
-                    player.Image = Properties.Resources.brick_wall;
-                    break;
-                case SquareType.RedSquare:
-                    player.Image = Properties.Resources.red_square;
-                    break;
-                case SquareType.BlueSquare:
-                    player.Image = Properties.Resources.blue_square;
-                    break;
-                case SquareType.GreenSquare:
-                    player.Image = Properties.Resources.green_square;
-                    break;
-                case SquareType.YellowSquare:
-                    player.Image = Properties.Resources.yellow_square;
-                    break;
+                btnLeft.Enabled = false;
             }
+            else btnLeft.Enabled = true;
         }
 
         private void btnDown_Click(object sender, EventArgs e)
         {
-
+            player.Top -= 20;
+            if (player.Bounds.IntersectsWith(wall.Bounds))
+            {
+                btnDown.Enabled = false;
+            }
+            else btnDown.Enabled = true;
         }
 
         private void btnUp_Click(object sender, EventArgs e)
         {
-
+            player.Top += 20;
+            if (player.Bounds.IntersectsWith(wall.Bounds))
+            {
+                btnUp.Enabled = false;
+            }
+            else btnUp.Enabled = true;
         }
 
         private void btnRight_Click(object sender, EventArgs e)
         {
-            
+            player.Left -= 20;
+            if (player.Bounds.IntersectsWith(wall.Bounds))
+            {
+                btnRight.Enabled = false;
+            }
+            else btnRight.Enabled = true;
         }
     }
 }

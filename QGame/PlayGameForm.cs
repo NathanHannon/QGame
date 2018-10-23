@@ -11,7 +11,6 @@ using System.IO;
 
 namespace QGame
 {
-
     public partial class PlayGameForm : Form
     {
 
@@ -20,22 +19,13 @@ namespace QGame
             InitializeComponent();
         }
 
-        enum SquareType
-        {
-            Blank,
-            BrickWall,
-            RedSquare,
-            BlueSquare,
-            GreenSquare,
-            YellowSquare,
-            RedExit,
-            BlueExit,
-            GreenExit,
-            YellowExit
-        }
+        
         public Tile[,] _loadedTile;
         private SquareType _squaretype = SquareType.Blank;
         private OpenFileDialog openFile = new OpenFileDialog();
+        private Tile player = new Tile();
+
+
         /// <summary>
         /// Load file function
         /// </summary>
@@ -44,8 +34,15 @@ namespace QGame
         {
 
             StreamReader openFile = new StreamReader(fileName);
-            openFile.ReadLine();
-            
+            for (int i = 0; i < LevelDesignForm._rowSqaures; i++)
+            {
+                for (int j = 0; j < LevelDesignForm._columnSquares; j++)
+                {
+                    LevelDesignForm._square[i, j].squareType = (SquareType)Enum.Parse(typeof(SquareType), openFile.ReadLine());
+                }
+            }
+            openFile.Close();
+            MessageBox.Show("Game Loaded Successfully!", "GameLoaded", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void loadToolStripMenuItem_Click(object sender, EventArgs e)
@@ -90,7 +87,27 @@ namespace QGame
 
         private void btnLeft_Click(object sender, EventArgs e)
         {
-
+            switch (_squaretype)
+            {
+                case SquareType.Blank:
+                    player.Image = Properties.Resources.blank_square;
+                    break;
+                case SquareType.BrickWall:
+                    player.Image = Properties.Resources.brick_wall;
+                    break;
+                case SquareType.RedSquare:
+                    player.Image = Properties.Resources.red_square;
+                    break;
+                case SquareType.BlueSquare:
+                    player.Image = Properties.Resources.blue_square;
+                    break;
+                case SquareType.GreenSquare:
+                    player.Image = Properties.Resources.green_square;
+                    break;
+                case SquareType.YellowSquare:
+                    player.Image = Properties.Resources.yellow_square;
+                    break;
+            }
         }
 
         private void btnDown_Click(object sender, EventArgs e)

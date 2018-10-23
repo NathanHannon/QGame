@@ -36,9 +36,9 @@ namespace QGame
         private const int InitTop = 50;
         private const int SquareGap = 20;
 
-        public Tile[,] _square;
-        public int _rowSqaures;
-        public int _columnSquares;
+        public static Tile[,] _square;
+        public static int _rowSqaures;
+        public static int _columnSquares;
         
         /// <summary>
         /// Enumeration containing Square types
@@ -60,20 +60,20 @@ namespace QGame
         /// <param name="fileName"></param>
         private void DoSave(string fileName)
         {
-            StreamWriter saveLevel = new StreamWriter(fileName);
-            saveLevel.WriteLine(_rowSqaures);
-            saveLevel.WriteLine(_columnSquares);
+            StreamWriter saveFile = new StreamWriter(fileName);
+            saveFile.WriteLine(_rowSqaures);
+            saveFile.WriteLine(_columnSquares);
             
             for (int i = 0; i < _rowSqaures; i++)
             {
                 for (int j = 0; j < _columnSquares; j++)
                 {
-                    saveLevel.WriteLine(i);
-                    saveLevel.WriteLine(j);
-                    saveLevel.WriteLine((int)_square[i, j].squareType);
+                    saveFile.WriteLine(i);
+                    saveFile.WriteLine(j);
+                    saveFile.WriteLine((int)_square[i, j].squareType);
                 }
             }
-            saveLevel.Close();
+            saveFile.Close();
             MessageBox.Show("Game Saved Successfully!", "Game Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         /// <summary>

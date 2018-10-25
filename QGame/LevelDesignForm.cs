@@ -158,6 +158,7 @@ namespace QGame
                         _square[r, c].Top = yAxis + txtColumns.Height;
                         _square[r, c].Width = InitWidth;
                         _square[r, c].Height = InitHeight;
+                        _square[r,c].BorderStyle = BorderStyle.FixedSingle;
                         _square[r, c].row = r;
                         _square[r, c].col = c;
                         _square[r, c].toolType = ToolType.NONE;
@@ -168,10 +169,10 @@ namespace QGame
                        
                         Controls.Add(_square[r, c]);
 
-                        yAxis += SquareGap + InitHeight;
+                        yAxis += InitHeight;
 
                     }
-                    xAxis += SquareGap + InitWidth;
+                    xAxis += InitWidth;
                     yAxis = InitTop;
                 }
             }
@@ -190,7 +191,6 @@ namespace QGame
             switch (_tooltype)
             {
                 case ToolType.NONE:
-                    p.Image = Properties.Resources.blank_square;
                     break;
                 case ToolType.WALL:
                     p.Image = Properties.Resources.brick_wall;

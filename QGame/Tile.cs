@@ -9,8 +9,8 @@ namespace QGame
 {
     public class Tile : PictureBox
     {
-        public int row;
-        public int col;
-        public SquareType squareType; 
+        public int Row;
+        public int Col;
+        public SquareType SquareType; 
     }
 }

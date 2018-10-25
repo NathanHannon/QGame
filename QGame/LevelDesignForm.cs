@@ -36,18 +36,13 @@ namespace QGame
         private const int InitTop = 50;
         private const int SquareGap = 20;
 
-        public static Tile[,] _square;
-        public static int _rowSqaures;
-        public static int _columnSquares;
-        
-        /// <summary>
-        /// Enumeration containing Square types
-        /// </summary>
-        
+        public static Tile[,] Square;
+        public static int RowSqaures;
+        public static int ColumnSquares;
 
         private SquareType _squaretype = SquareType.Blank;
 
-        private SaveFileDialog saveFile = new SaveFileDialog();
+        private readonly SaveFileDialog _saveFile = new SaveFileDialog();
 
         public LevelDesignForm()
         {
@@ -60,20 +55,20 @@ namespace QGame
         /// <param name="fileName"></param>
         private void DoSave(string fileName)
         {
-            StreamWriter saveFile = new StreamWriter(fileName);
-            saveFile.WriteLine(_rowSqaures);
-            saveFile.WriteLine(_columnSquares);
+            StreamWriter saveLevel = new StreamWriter(fileName);
+            saveLevel.WriteLine(RowSqaures);
+            saveLevel.WriteLine(ColumnSquares);
             
-            for (int i = 0; i < _rowSqaures; i++)
+            for (int i = 0; i < RowSqaures; i++)
             {
-                for (int j = 0; j < _columnSquares; j++)
+                for (int j = 0; j < ColumnSquares; j++)
                 {
-                    saveFile.WriteLine(i);
-                    saveFile.WriteLine(j);
-                    saveFile.WriteLine((int)_square[i, j].squareType);
+                    saveLevel.WriteLine(i);
+                    saveLevel.WriteLine(j);
+                    saveLevel.WriteLine((int)Square[i, j].SquareType);
                 }
             }
-            saveFile.Close();
+            saveLevel.Close();
             MessageBox.Show("Game Saved Successfully!", "Game Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         /// <summary>
@@ -92,10 +87,10 @@ namespace QGame
         /// <param name="e"></param>
         private void saveLevelToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DialogResult result = saveFile.ShowDialog();
-            saveFile.Filter = "Text Files (*.txt|*.txt)";
-            saveFile.DefaultExt = "txt";
-            saveFile.AddExtension = true;
+            DialogResult result = _saveFile.ShowDialog();
+            _saveFile.Filter = "Text Files (*.txt|*.txt)";
+            _saveFile.DefaultExt = "txt";
+            _saveFile.AddExtension = true;
             switch (result)
             {
                 case DialogResult.None:
@@ -103,7 +98,7 @@ namespace QGame
                 case DialogResult.OK:
                     try
                     {
-                        string fileName = saveFile.FileName;
+                        string fileName = _saveFile.FileName;
                         DoSave(fileName);
                     }
                     catch (Exception ex)
@@ -148,39 +143,40 @@ namespace QGame
             try
             {
                 //Variable to hold the text for rows
-                _rowSqaures = int.Parse(txtRows.Text);
+                RowSqaures = int.Parse(txtRows.Text);
                 //Variable to hold the text for columns
-                _columnSquares = int.Parse(txtColumns.Text);
+                ColumnSquares = int.Parse(txtColumns.Text);
 
                 int xAxis = InitLeft;
                 int yAxis = InitTop;
 
                 //Generates new picturebox array that holds the textbox numbers
-                _square = new Tile[_columnSquares, _rowSqaures];
+                Square = new Tile[ColumnSquares, RowSqaures];
 
                 //Generates a vertical line, with the number of squares coming from the user's input  
-                for (int r = 0; r < _rowSqaures; r++)
+                for (int r = 0; r < RowSqaures; r++)
                 {
                     //Generates a horizontal line, with the number of squares coming from the user's input 
                     
-                        for (int c = 0; c < _columnSquares; c++)
+                        for (int c = 0; c < ColumnSquares; c++)
                         {
-                        _square[r, c] = new Tile();
+                        Square[r, c] = new Tile
+                        {
+                            Image = Properties.Resources.blank_square,
+                            Left = xAxis + grpToolbox.Width,
+                            Top = yAxis + txtColumns.Height,
+                            Width = InitWidth,
+                            Height = InitHeight,
+                            Row = r,
+                            Col = c,
+                            SquareType = SquareType.Blank
+                        };
 
-                        _square[r, c].Image = Properties.Resources.blank_square;
-                        _square[r, c].Left = xAxis + grpToolbox.Width;
-                        _square[r, c].Top = yAxis + txtColumns.Height;
-                        _square[r, c].Width = InitWidth;
-                        _square[r, c].Height = InitHeight;
-                        _square[r, c].row = r;
-                        _square[r, c].col = c;
-                        _square[r, c].squareType = SquareType.Blank;
 
-
-                        _square[r, c].Click += square_click;
+                        Square[r, c].Click += square_click;
 
                        
-                        Controls.Add(_square[r, c]);
+                        Controls.Add(Square[r, c]);
 
                         yAxis += SquareGap + InitHeight;
 
@@ -200,7 +196,7 @@ namespace QGame
         private void square_click(object sender, EventArgs e)
         {
            Tile p = (Tile)sender;
-            p.squareType = _squaretype;
+            p.SquareType = _squaretype;
             switch (_squaretype)
             {
                 case SquareType.Blank:

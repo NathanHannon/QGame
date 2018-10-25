@@ -39,6 +39,7 @@
             this.grpControlPad = new System.Windows.Forms.GroupBox();
             this.btnUp = new System.Windows.Forms.Button();
             this.btnLeft = new System.Windows.Forms.Button();
+            this.dlgOpen = new System.Windows.Forms.OpenFileDialog();
             this.strpMenu.SuspendLayout();
             this.grpControlPad.SuspendLayout();
             this.SuspendLayout();
@@ -110,7 +111,7 @@
             this.grpControlPad.Controls.Add(this.btnRight);
             this.grpControlPad.Controls.Add(this.btnLeft);
             this.grpControlPad.Controls.Add(this.btnDown);
-            this.grpControlPad.Location = new System.Drawing.Point(12, 275);
+            this.grpControlPad.Location = new System.Drawing.Point(677, 275);
             this.grpControlPad.Name = "grpControlPad";
             this.grpControlPad.Size = new System.Drawing.Size(111, 163);
             this.grpControlPad.TabIndex = 6;
@@ -137,6 +138,10 @@
             this.btnLeft.UseVisualStyleBackColor = true;
             this.btnLeft.Click += new System.EventHandler(this.btnLeft_Click);
             // 
+            // dlgOpen
+            // 
+            this.dlgOpen.FileName = "dlgOpen";
+            // 
             // PlayGameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -152,10 +157,7 @@
             this.grpControlPad.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
-            ///
-            /// _openFileDialog
-            /// 
-            this._openFileDialog.FileName = "openFileDialog1";
+
         }
 
         #endregion
@@ -170,6 +172,6 @@
         private System.Windows.Forms.Button btnRight;
         private System.Windows.Forms.GroupBox grpControlPad;
         private System.Windows.Forms.Button btnUp;
-        private System.Windows.Forms.OpenFileDialog _openFileDialog;
+        private System.Windows.Forms.OpenFileDialog dlgOpen;
     }
 }

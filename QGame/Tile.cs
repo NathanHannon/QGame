@@ -18,7 +18,8 @@ namespace QGame
         RED_BOX,
         GREEN_BOX,
         BLUE_BOX,
-        YELLOW_BOX
+        YELLOW_BOX,
+        BLANK_BOX
     }
     public class Tile : PictureBox
     {

@@ -173,16 +173,6 @@ namespace QGame.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap red_square1 {
-            get {
-                object obj = ResourceManager.GetObject("red-square1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap right_arrow {
             get {
                 object obj = ResourceManager.GetObject("right-arrow", resourceCulture);

@@ -153,7 +153,6 @@ namespace QGame
                         {
                         _square[r, c] = new Tile();
 
-                        _square[r, c].Image = Properties.Resources.blank_square;
                         _square[r, c].Left = xAxis + grpToolbox.Width;
                         _square[r, c].Top = yAxis + txtColumns.Height;
                         _square[r, c].Width = InitWidth;
@@ -225,7 +224,7 @@ namespace QGame
         }
         private void btnBlank_Click(object sender, EventArgs e)
         {
-            _tooltype = ToolType.NONE;
+            _tooltype = ToolType.BLANK_BOX;
         }
 
         private void btnBrickWall_Click(object sender, EventArgs e)

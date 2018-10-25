@@ -150,14 +150,14 @@ namespace QGame
         
         private void loadToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            _openFileDialog.FileName = "savegame6.qgame";
-            DialogResult r = _openFileDialog.ShowDialog();
+            dlgOpen.FileName = "savegame6.qgame";
+            DialogResult r = dlgOpen.ShowDialog();
             switch (r)
             {
                 case DialogResult.None:
                     break;
                 case DialogResult.OK:
-                    loadFile(_openFileDialog.FileName);
+                    loadFile(dlgOpen.FileName);
                     break;
                 case DialogResult.Cancel:
                     break;
@@ -181,32 +181,42 @@ namespace QGame
             bool flag = true;
             while (flag)
             {
-                int currentRow = selectedTile.row;
-                int currentCol = selectedTile.col;
-                int futureRow = selectedTile.row;
-                int futureCol = selectedTile.col + 1;
-
-                //selectedTile.row = futureRow;
-                //selectedTile.col = futureCol;
-                //selectedTile.updatePosition();
-
-                Tile x = findTile(futureRow, futureCol);
-                if (x == null)
+                try
                 {
-                    selectedTile.row = futureRow;
-                    selectedTile.col = futureCol;
-                    selectedTile.updatePosition();
+
+                    int currentRow = selectedTile.row;
+                    int currentCol = selectedTile.col;
+                    int futureRow = selectedTile.row;
+                    int futureCol = selectedTile.col - 1;
+
+                    //selectedTile.row = futureRow;
+                    //selectedTile.col = futureCol;
+                    //selectedTile.updatePosition();
+
+                    Tile x = findTile(futureRow, futureCol);
+                    if (x == null)
+                    {
+                        selectedTile.row = futureRow;
+                        selectedTile.col = futureCol;
+                        selectedTile.updatePosition();
+                    }
+
+                    else if (x.toolType == ToolType.RED_DOOR && selectedTile.toolType == ToolType.RED_BOX)
+                    {
+                        removeTilefromArray(selectedTile);
+                        this.Controls.Remove(selectedTile);
+                        flag = false;
+                    }
+                    else
+                    {
+                        flag = false;
+                    }
                 }
+                catch (NullReferenceException)
+                {
 
-                else if (x.toolType == ToolType.RED_DOOR && selectedTile.toolType == ToolType.RED_BOX)
-                {
-                    removeTilefromArray(selectedTile);
-                    this.Controls.Remove(selectedTile);
-                    flag = false;
-                }
-                else
-                {
-                    flag = false;
+                    MessageBox.Show($"Please select a square.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
             }
         }
@@ -215,32 +225,47 @@ namespace QGame
             bool flag = true;
             while (flag)
             {
-                int currentRow = selectedTile.row;
-                int currentCol = selectedTile.col;
-                int futureRow = selectedTile.row;
-                int futureCol = selectedTile.col + 1;
-
-                //selectedTile.row = futureRow;
-                //selectedTile.col = futureCol;
-                //selectedTile.updatePosition();
-
-                Tile x = findTile(futureRow, futureCol);
-                if (x == null)
+                try
                 {
-                    selectedTile.row = futureRow;
-                    selectedTile.col = futureCol;
-                    selectedTile.updatePosition();
+
+                    int currentRow = selectedTile.row;
+                    int currentCol = selectedTile.col;
+                    int futureRow = selectedTile.row;
+                    int futureCol = selectedTile.col + 1;
+
+                    //selectedTile.row = futureRow;
+                    //selectedTile.col = futureCol;
+                    //selectedTile.updatePosition();
+
+                    Tile x = findTile(futureRow, futureCol);
+                    if (x == null)
+                    {
+                        selectedTile.row = futureRow;
+                        selectedTile.col = futureCol;
+                        selectedTile.updatePosition();
+                    }
+                    else if (x.toolType == ToolType.RED_DOOR && selectedTile.toolType == ToolType.RED_BOX)
+                    {
+                        removeTilefromArray(selectedTile);
+                        this.Controls.Remove(selectedTile);
+                        flag = false;
+                    }
+                    else if (x.toolType == ToolType.BLUE_DOOR && selectedTile.toolType == ToolType.BLUE_BOX)
+                    {
+                        removeTilefromArray(selectedTile);
+                        this.Controls.Remove(selectedTile);
+                        flag = false;
+                    }
+                    else
+                    {
+                        flag = false;
+                    }
                 }
+                catch (NullReferenceException)
+                {
 
-                else if (x.toolType == ToolType.RED_DOOR && selectedTile.toolType == ToolType.RED_BOX)
-                {
-                    removeTilefromArray(selectedTile);
-                    this.Controls.Remove(selectedTile);
-                    flag = false;
-                }
-                else
-                {
-                    flag = false;
+                    MessageBox.Show($"Please select a square.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
             }
         }
@@ -249,32 +274,48 @@ namespace QGame
             bool flag = true;
             while (flag)
             {
-                int currentRow = selectedTile.row;
-                int currentCol = selectedTile.col;
-                int futureRow = selectedTile.row;
-                int futureCol = selectedTile.col + 1;
-
-                //selectedTile.row = futureRow;
-                //selectedTile.col = futureCol;
-                //selectedTile.updatePosition();
-
-                Tile x = findTile(futureRow, futureCol);
-                if (x == null)
+                try
                 {
-                    selectedTile.row = futureRow;
-                    selectedTile.col = futureCol;
-                    selectedTile.updatePosition();
+
+                    int currentRow = selectedTile.row;
+                    int currentCol = selectedTile.col;
+                    int futureRow = selectedTile.row - 1;
+                    int futureCol = selectedTile.col;
+
+                    //selectedTile.row = futureRow;
+                    //selectedTile.col = futureCol;
+                    //selectedTile.updatePosition();
+
+                    Tile x = findTile(futureRow, futureCol);
+                    if (x == null)
+                    {
+                        selectedTile.row = futureRow;
+                        selectedTile.col = futureCol;
+                        selectedTile.updatePosition();
+                    }
+
+                    else if (x.toolType == ToolType.RED_DOOR && selectedTile.toolType == ToolType.RED_BOX)
+                    {
+                        removeTilefromArray(selectedTile);
+                        this.Controls.Remove(selectedTile);
+                        flag = false;
+                    }
+                    else if (x.toolType == ToolType.BLUE_DOOR && selectedTile.toolType == ToolType.BLUE_BOX)
+                    {
+                        removeTilefromArray(selectedTile);
+                        this.Controls.Remove(selectedTile);
+                        flag = false;
+                    }
+                    else
+                    {
+                        flag = false;
+                    }
                 }
+                catch (NullReferenceException)
+                {
 
-                else if (x.toolType == ToolType.RED_DOOR && selectedTile.toolType == ToolType.RED_BOX)
-                {
-                    removeTilefromArray(selectedTile);
-                    this.Controls.Remove(selectedTile);
-                    flag = false;
-                }
-                else
-                {
-                    flag = false;
+                    MessageBox.Show($"Please select a square.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
             }
         }
@@ -283,32 +324,48 @@ namespace QGame
             bool flag = true;
             while (flag)
             {
-                int currentRow = selectedTile.row;
-                int currentCol = selectedTile.col;
-                int futureRow = selectedTile.row;
-                int futureCol = selectedTile.col + 1;
-
-                //selectedTile.row = futureRow;
-                //selectedTile.col = futureCol;
-                //selectedTile.updatePosition();
-
-                Tile x = findTile(futureRow, futureCol);
-                if (x == null)
+                try
                 {
-                    selectedTile.row = futureRow;
-                    selectedTile.col = futureCol;
-                    selectedTile.updatePosition();
+
+                    int currentRow = selectedTile.row;
+                    int currentCol = selectedTile.col;
+                    int futureRow = selectedTile.row + 1;
+                    int futureCol = selectedTile.col;
+
+                    //selectedTile.row = futureRow;
+                    //selectedTile.col = futureCol;
+                    //selectedTile.updatePosition();
+
+                    Tile x = findTile(futureRow, futureCol);
+                    if (x == null)
+                    {
+                        selectedTile.row = futureRow;
+                        selectedTile.col = futureCol;
+                        selectedTile.updatePosition();
+                    }
+
+                    else if (x.toolType == ToolType.RED_DOOR && selectedTile.toolType == ToolType.RED_BOX)
+                    {
+                        removeTilefromArray(selectedTile);
+                        this.Controls.Remove(selectedTile);
+                        flag = false;
+                    }
+                    else if (x.toolType == ToolType.BLUE_DOOR && selectedTile.toolType == ToolType.BLUE_BOX)
+                    {
+                        removeTilefromArray(selectedTile);
+                        this.Controls.Remove(selectedTile);
+                        flag = false;
+                    }
+                    else
+                    {
+                        flag = false;
+                    }
                 }
+                catch (NullReferenceException)
+                {
 
-                else if (x.toolType == ToolType.RED_DOOR && selectedTile.toolType == ToolType.RED_BOX)
-                {
-                    removeTilefromArray(selectedTile);
-                    this.Controls.Remove(selectedTile);
-                    flag = false;
-                }
-                else
-                {
-                    flag = false;
+                    MessageBox.Show($"Please select a square.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
             }
         }

@@ -11,20 +11,6 @@ using System.IO;
 
 namespace QGame
 {
-    public enum SquareType
-    {
-        Blank,
-        BrickWall,
-        RedSquare,
-        BlueSquare,
-        GreenSquare,
-        YellowSquare,
-        RedExit,
-        BlueExit,
-        GreenExit,
-        YellowExit
-    }
-
     public partial class LevelDesignForm : Form
     {
         /// <summary>
@@ -45,7 +31,7 @@ namespace QGame
         /// </summary>
         
 
-        private SquareType _squaretype = SquareType.Blank;
+        private ToolType _tooltype = ToolType.NONE;
 
         private SaveFileDialog saveFile = new SaveFileDialog();
 
@@ -70,7 +56,7 @@ namespace QGame
                 {
                     saveFile.WriteLine(i);
                     saveFile.WriteLine(j);
-                    saveFile.WriteLine((int)_square[i, j].squareType);
+                    saveFile.WriteLine((int)_square[i, j].toolType);
                 }
             }
             saveFile.Close();
@@ -174,7 +160,7 @@ namespace QGame
                         _square[r, c].Height = InitHeight;
                         _square[r, c].row = r;
                         _square[r, c].col = c;
-                        _square[r, c].squareType = SquareType.Blank;
+                        _square[r, c].toolType = ToolType.NONE;
 
 
                         _square[r, c].Click += square_click;
@@ -200,37 +186,37 @@ namespace QGame
         private void square_click(object sender, EventArgs e)
         {
            Tile p = (Tile)sender;
-            p.squareType = _squaretype;
-            switch (_squaretype)
+            p.toolType = _tooltype;
+            switch (_tooltype)
             {
-                case SquareType.Blank:
+                case ToolType.NONE:
                     p.Image = Properties.Resources.blank_square;
                     break;
-                case SquareType.BrickWall:
+                case ToolType.WALL:
                     p.Image = Properties.Resources.brick_wall;
                     break;
-                case SquareType.RedSquare:
+                case ToolType.RED_BOX:
                     p.Image = Properties.Resources.red_square;
                     break;
-                case SquareType.BlueSquare:
+                case ToolType.BLUE_BOX:
                     p.Image = Properties.Resources.blue_square;
                     break;
-                case SquareType.GreenSquare:
+                case ToolType.GREEN_BOX:
                     p.Image = Properties.Resources.green_square;
                     break;
-                case SquareType.YellowSquare:
+                case ToolType.YELLOW_BOX:
                     p.Image = Properties.Resources.yellow_square;
                     break;
-                case SquareType.RedExit:
+                case ToolType.RED_DOOR:
                     p.Image = Properties.Resources.exit_red;
                     break;
-                case SquareType.BlueExit:
+                case ToolType.BLUE_DOOR:
                     p.Image = Properties.Resources.exit_blue;
                     break;
-                case SquareType.GreenExit:
+                case ToolType.GREEN_DOOR:
                     p.Image = Properties.Resources.exit_green;
                     break;
-                case SquareType.YellowExit:
+                case ToolType.YELLOW_DOOR:
                     p.Image = Properties.Resources.exit_yellow;
                     break;
                 default:
@@ -239,52 +225,52 @@ namespace QGame
         }
         private void btnBlank_Click(object sender, EventArgs e)
         {
-            _squaretype = SquareType.Blank;
+            _tooltype = ToolType.NONE;
         }
 
         private void btnBrickWall_Click(object sender, EventArgs e)
         {
-            _squaretype = SquareType.BrickWall;
+            _tooltype = ToolType.WALL;
         }
 
         private void btnRedSquare_Click(object sender, EventArgs e)
         {
-            _squaretype = SquareType.RedSquare;
+            _tooltype = ToolType.RED_BOX;
         }
 
         private void btnBlueSquare_Click(object sender, EventArgs e)
         {
-            _squaretype = SquareType.BlueSquare;
+            _tooltype = ToolType.BLUE_BOX;
         }
 
         private void btnGreenSquare_Click(object sender, EventArgs e)
         {
-            _squaretype = SquareType.GreenSquare;
+            _tooltype = ToolType.GREEN_BOX;
         }
 
         private void btnYellowSquare_Click(object sender, EventArgs e)
         {
-            _squaretype = SquareType.YellowSquare;
+            _tooltype = ToolType.YELLOW_BOX;
         }
 
         private void btnRedExit_Click(object sender, EventArgs e)
         {
-            _squaretype = SquareType.RedExit;
+            _tooltype = ToolType.RED_DOOR;
         }
 
         private void btnBlueExit_Click(object sender, EventArgs e)
         {
-            _squaretype = SquareType.BlueExit;
+            _tooltype = ToolType.BLUE_DOOR;
         }
 
         private void btnGreenExit_Click(object sender, EventArgs e)
         {
-            _squaretype = SquareType.GreenExit;
+            _tooltype = ToolType.GREEN_DOOR;
         }
 
         private void btnYellowExit_Click(object sender, EventArgs e)
         {
-            _squaretype = SquareType.YellowExit;
+            _tooltype = ToolType.YELLOW_DOOR;
         }
     }
 }

@@ -167,5 +167,6 @@
         private System.Windows.Forms.Button btnRight;
         private System.Windows.Forms.GroupBox grpControlPad;
         private System.Windows.Forms.Button btnUp;
+        private System.Windows.Forms.OpenFileDialog _openFileDialog;
     }
 }

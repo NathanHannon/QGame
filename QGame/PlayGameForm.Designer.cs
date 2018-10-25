@@ -152,7 +152,10 @@
             this.grpControlPad.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
-
+            ///
+            /// _openFileDialog
+            /// 
+            this._openFileDialog.FileName = "openFileDialog1";
         }
 
         #endregion

@@ -43,9 +43,6 @@ namespace QGame
 
                     if (toolType != 0)
                     {
-
-
-
                         Console.WriteLine($"row: {r} col: {c} toolType: {toolType}");
 
                         Tile t = new Tile();
@@ -96,9 +93,6 @@ namespace QGame
                             default:
                                 break;
                         }
-
-
-
                         this.Controls.Add(t);
                         t.Click += T_Click;
                      }
@@ -141,10 +135,21 @@ namespace QGame
                 }
             }
         }
-
-        private void loadFileToolStrpMenuItem_Click(object sender, EventArgs e)
+        
+        private void closeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Application.Exit();
+        }
+        
+        private void returnToMainMenuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var mainMenu = new MainMenuForm();
+            this.Hide();
+            mainMenu.Show();
+        }
+        
+        private void loadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             _openFileDialog.FileName = "savegame6.qgame";
             DialogResult r = _openFileDialog.ShowDialog();
             switch (r)
@@ -172,6 +177,108 @@ namespace QGame
         }
 
         private void btnRight_Click(object sender, EventArgs e)
+        {
+            bool flag = true;
+            while (flag)
+            {
+                int currentRow = selectedTile.row;
+                int currentCol = selectedTile.col;
+                int futureRow = selectedTile.row;
+                int futureCol = selectedTile.col + 1;
+
+                //selectedTile.row = futureRow;
+                //selectedTile.col = futureCol;
+                //selectedTile.updatePosition();
+
+                Tile x = findTile(futureRow, futureCol);
+                if (x == null)
+                {
+                    selectedTile.row = futureRow;
+                    selectedTile.col = futureCol;
+                    selectedTile.updatePosition();
+                }
+
+                else if (x.toolType == ToolType.RED_DOOR && selectedTile.toolType == ToolType.RED_BOX)
+                {
+                    removeTilefromArray(selectedTile);
+                    this.Controls.Remove(selectedTile);
+                    flag = false;
+                }
+                else
+                {
+                    flag = false;
+                }
+            }
+        }
+        private void btnLeft_Click(object sender, EventArgs e)
+        {
+            bool flag = true;
+            while (flag)
+            {
+                int currentRow = selectedTile.row;
+                int currentCol = selectedTile.col;
+                int futureRow = selectedTile.row;
+                int futureCol = selectedTile.col + 1;
+
+                //selectedTile.row = futureRow;
+                //selectedTile.col = futureCol;
+                //selectedTile.updatePosition();
+
+                Tile x = findTile(futureRow, futureCol);
+                if (x == null)
+                {
+                    selectedTile.row = futureRow;
+                    selectedTile.col = futureCol;
+                    selectedTile.updatePosition();
+                }
+
+                else if (x.toolType == ToolType.RED_DOOR && selectedTile.toolType == ToolType.RED_BOX)
+                {
+                    removeTilefromArray(selectedTile);
+                    this.Controls.Remove(selectedTile);
+                    flag = false;
+                }
+                else
+                {
+                    flag = false;
+                }
+            }
+        }
+        private void btnUp_Click(object sender, EventArgs e)
+        {
+            bool flag = true;
+            while (flag)
+            {
+                int currentRow = selectedTile.row;
+                int currentCol = selectedTile.col;
+                int futureRow = selectedTile.row;
+                int futureCol = selectedTile.col + 1;
+
+                //selectedTile.row = futureRow;
+                //selectedTile.col = futureCol;
+                //selectedTile.updatePosition();
+
+                Tile x = findTile(futureRow, futureCol);
+                if (x == null)
+                {
+                    selectedTile.row = futureRow;
+                    selectedTile.col = futureCol;
+                    selectedTile.updatePosition();
+                }
+
+                else if (x.toolType == ToolType.RED_DOOR && selectedTile.toolType == ToolType.RED_BOX)
+                {
+                    removeTilefromArray(selectedTile);
+                    this.Controls.Remove(selectedTile);
+                    flag = false;
+                }
+                else
+                {
+                    flag = false;
+                }
+            }
+        }
+        private void btnDown_Click(object sender, EventArgs e)
         {
             bool flag = true;
             while (flag)

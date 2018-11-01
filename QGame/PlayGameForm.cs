@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 
@@ -30,7 +23,7 @@ namespace QGame
             tiles = new Tile[numberOfRows, numberOfCols];
 
 
-            Console.WriteLine($"number of rows: {numberOfRows} number of cols: {numberOfCols}");
+            Console.WriteLine(value: $"number of rows: {numberOfRows} number of cols: {numberOfCols}");
 
 
             for (int i = 0; i < numberOfRows; i++)
@@ -43,7 +36,7 @@ namespace QGame
 
                     if (toolType != 0)
                     {
-                        Console.WriteLine($"row: {r} col: {c} toolType: {toolType}");
+                        Console.WriteLine(value: $"row: {r} col: {c} toolType: {toolType}");
 
                         Tile t = new Tile();
 
@@ -129,7 +122,7 @@ namespace QGame
                     if (t == tiles[i,j])
                     {
                         tiles[i, j] = null;
-                        Console.WriteLine($"row: {t.row} col: {t.col}");
+                        Console.WriteLine(value: $"row: {t.row} col: {t.col}");
                         return;
                     }
                 }
@@ -207,6 +200,12 @@ namespace QGame
                         this.Controls.Remove(selectedTile);
                         flag = false;
                     }
+                    else if (x.toolType == ToolType.BLUE_DOOR && selectedTile.toolType == ToolType.BLUE_BOX)
+                    {
+                        removeTilefromArray(selectedTile);
+                        this.Controls.Remove(selectedTile);
+                        flag = false;
+                    }
                     else
                     {
                         flag = false;
@@ -215,7 +214,7 @@ namespace QGame
                 catch (NullReferenceException)
                 {
 
-                    MessageBox.Show($"Please select a square.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(text: $@"Please select a square.", caption: "Error!", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
                     return;
                 }
             }
@@ -264,7 +263,7 @@ namespace QGame
                 catch (NullReferenceException)
                 {
 
-                    MessageBox.Show($"Please select a square.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(text: $@"Please select a square.", caption: "Error!", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
                     return;
                 }
             }
@@ -314,7 +313,7 @@ namespace QGame
                 catch (NullReferenceException)
                 {
 
-                    MessageBox.Show($"Please select a square.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(text: $@"Please select a square.", caption: "Error!", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
                     return;
                 }
             }
@@ -364,7 +363,7 @@ namespace QGame
                 catch (NullReferenceException)
                 {
 
-                    MessageBox.Show($"Please select a square.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(text: $@"Please select a square.", caption: "Error!", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
                     return;
                 }
             }

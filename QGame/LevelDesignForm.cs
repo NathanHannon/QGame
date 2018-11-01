@@ -60,7 +60,7 @@ namespace QGame
                 }
             }
             saveFile.Close();
-            MessageBox.Show("Game Saved Successfully!", "Game Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(@"Game Saved Successfully!", "Game Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         /// <summary>
         /// Exits program via tool strip button
@@ -79,7 +79,7 @@ namespace QGame
         private void saveLevelToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DialogResult result = saveFile.ShowDialog();
-            saveFile.Filter = "Text Files (*.txt|*.txt)";
+            saveFile.Filter = @"Text Files (*.txt|*.txt)";
             saveFile.DefaultExt = "txt";
             saveFile.AddExtension = true;
             switch (result)

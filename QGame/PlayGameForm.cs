@@ -206,6 +206,8 @@ namespace QGame
         private void btnRight_Click(object sender, EventArgs e)
         {
             bool flag = true;
+            bool redFinished = false;
+            bool blueFinished = false;
             while (flag)
             {
                 try
@@ -261,6 +263,8 @@ namespace QGame
         private void btnLeft_Click(object sender, EventArgs e)
         {
             bool flag = true;
+            bool redFinished = false;
+            bool blueFinished = false;
             while (flag)
             {
                 try
@@ -315,6 +319,8 @@ namespace QGame
         private void btnUp_Click(object sender, EventArgs e)
         {
             bool flag = true;
+            bool redFinished = false;
+            bool blueFinished = false;
             while (flag)
             {
                 try
@@ -370,6 +376,8 @@ namespace QGame
         private void btnDown_Click(object sender, EventArgs e)
         {
             bool flag = true;
+            bool redFinished = false;
+            bool blueFinished = false;
             while (flag)
             {
                 try
@@ -407,7 +415,8 @@ namespace QGame
                     else
                     {
                         flag = false;
-                    }
+                    } 
+                    
                 }
                 catch (NullReferenceException)
                 {

@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+ * Created By: Nathan Hannon   
+ * Creation Date: Oct 22, 2018
+ * File Name: Tile.cs 
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,6 +13,9 @@ using System.Windows.Forms;
 
 namespace QGame
 {
+    /// <summary>
+    /// Enum for the tool type
+    /// </summary>
     public enum ToolType
     {
         NONE,
@@ -21,6 +30,9 @@ namespace QGame
         YELLOW_BOX,
         BLANK_BOX
     }
+    /// <summary>
+    /// Inherits information from PictureBox
+    /// </summary>
     public class Tile : PictureBox
     {
         public int row;
@@ -32,7 +44,9 @@ namespace QGame
         private const int INIT_TOP = 100;
         private const int WIDTH = 50;
         private const int HEIGHT = 50;
-
+        /// <summary>
+        /// Updates player's position
+        /// </summary>
         public void updatePosition()
         {
             this.Left = INIT_LEFT + WIDTH * col;

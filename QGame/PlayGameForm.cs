@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+ * Created By: Nathan Hannon   
+ * Creation Date: Oct 12, 2018
+ * File Name: PlayGameForm.cs 
+ */
+using System;
 using System.Windows.Forms;
 using System.IO;
 
@@ -15,6 +20,10 @@ namespace QGame
         {
             InitializeComponent();
         }
+        /// <summary>
+        /// function to load file
+        /// </summary>
+        /// <param name="fileName"></param>
         private void loadFile(string fileName)
         {
             StreamReader reader = new StreamReader(fileName);
@@ -92,7 +101,12 @@ namespace QGame
                 }
             }
         }
-
+        /// <summary>
+        /// Finds the position of each tile
+        /// </summary>
+        /// <param name="r"></param>
+        /// <param name="c"></param>
+        /// <returns></returns>
         private Tile findTile(int r, int c)
         {
             for (int i = 0; i < tiles.GetLength(0); i++)
@@ -107,7 +121,11 @@ namespace QGame
             }
             return null;
         }
-
+        /// <summary>
+        /// Tile Click Event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void T_Click(object sender, EventArgs e)
         {
             selectedTile = (Tile)sender;
@@ -128,19 +146,31 @@ namespace QGame
                 }
             }
         }
-        
+        /// <summary>
+        /// ToolStrip button to close application
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void closeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-        
+        /// <summary>
+        /// ToolStrip Button to return to main menu and close current window
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void returnToMainMenuToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var mainMenu = new MainMenuForm();
             this.Hide();
             mainMenu.Show();
         }
-        
+        /// <summary>
+        /// ToolStrip button to open a file dialog and run the DoLoad function
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void loadToolStripMenuItem_Click(object sender, EventArgs e)
         {
             dlgOpen.FileName = "savegame6.qgame";
@@ -168,7 +198,11 @@ namespace QGame
                     break;
             }
         }
-
+        /// <summary>
+        /// Right Button click event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnRight_Click(object sender, EventArgs e)
         {
             bool flag = true;
@@ -219,6 +253,11 @@ namespace QGame
                 }
             }
         }
+        /// <summary>
+        /// Left button click event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnLeft_Click(object sender, EventArgs e)
         {
             bool flag = true;
@@ -268,6 +307,11 @@ namespace QGame
                 }
             }
         }
+        /// <summary>
+        /// Up Button click event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnUp_Click(object sender, EventArgs e)
         {
             bool flag = true;
@@ -318,6 +362,11 @@ namespace QGame
                 }
             }
         }
+        /// <summary>
+        /// Down Button click event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnDown_Click(object sender, EventArgs e)
         {
             bool flag = true;

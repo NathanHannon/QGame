@@ -206,8 +206,6 @@ namespace QGame
         private void btnRight_Click(object sender, EventArgs e)
         {
             bool flag = true;
-            bool redFinished = false;
-            bool blueFinished = false;
             while (flag)
             {
                 try
@@ -222,21 +220,21 @@ namespace QGame
                     //selectedTile.col = futureCol;
                     //selectedTile.updatePosition();
 
-                    Tile x = findTile(futureRow, futureCol);
-                    if (x == null)
+                    Tile tilePos = findTile(futureRow, futureCol);
+                    if (tilePos == null)
                     {
                         selectedTile.row = futureRow;
                         selectedTile.col = futureCol;
                         selectedTile.updatePosition();
                     }
 
-                    else if (x.toolType == ToolType.RED_DOOR && selectedTile.toolType == ToolType.RED_BOX)
+                    else if (tilePos.toolType == ToolType.RED_DOOR && selectedTile.toolType == ToolType.RED_BOX)
                     {
                         removeTilefromArray(selectedTile);
                         this.Controls.Remove(selectedTile);
                         flag = false;
                     }
-                    else if (x.toolType == ToolType.BLUE_DOOR && selectedTile.toolType == ToolType.BLUE_BOX)
+                    else if (tilePos.toolType == ToolType.BLUE_DOOR && selectedTile.toolType == ToolType.BLUE_BOX)
                     {
                         removeTilefromArray(selectedTile);
                         this.Controls.Remove(selectedTile);
@@ -263,8 +261,6 @@ namespace QGame
         private void btnLeft_Click(object sender, EventArgs e)
         {
             bool flag = true;
-            bool redFinished = false;
-            bool blueFinished = false;
             while (flag)
             {
                 try
@@ -279,20 +275,20 @@ namespace QGame
                     //selectedTile.col = futureCol;
                     //selectedTile.updatePosition();
 
-                    Tile x = findTile(futureRow, futureCol);
-                    if (x == null)
+                    Tile tilePos = findTile(futureRow, futureCol);
+                    if (tilePos == null)
                     {
                         selectedTile.row = futureRow;
                         selectedTile.col = futureCol;
                         selectedTile.updatePosition();
                     }
-                    else if (x.toolType == ToolType.RED_DOOR && selectedTile.toolType == ToolType.RED_BOX)
+                    else if (tilePos.toolType == ToolType.RED_DOOR && selectedTile.toolType == ToolType.RED_BOX)
                     {
                         removeTilefromArray(selectedTile);
                         this.Controls.Remove(selectedTile);
                         flag = false;
                     }
-                    else if (x.toolType == ToolType.BLUE_DOOR && selectedTile.toolType == ToolType.BLUE_BOX)
+                    else if (tilePos.toolType == ToolType.BLUE_DOOR && selectedTile.toolType == ToolType.BLUE_BOX)
                     {
                         removeTilefromArray(selectedTile);
                         this.Controls.Remove(selectedTile);
@@ -335,21 +331,21 @@ namespace QGame
                     //selectedTile.col = futureCol;
                     //selectedTile.updatePosition();
 
-                    Tile x = findTile(futureRow, futureCol);
-                    if (x == null)
+                    Tile tilePos = findTile(futureRow, futureCol);
+                    if (tilePos == null)
                     {
                         selectedTile.row = futureRow;
                         selectedTile.col = futureCol;
                         selectedTile.updatePosition();
                     }
 
-                    else if (x.toolType == ToolType.RED_DOOR && selectedTile.toolType == ToolType.RED_BOX)
+                    else if (tilePos.toolType == ToolType.RED_DOOR && selectedTile.toolType == ToolType.RED_BOX)
                     {
                         removeTilefromArray(selectedTile);
                         this.Controls.Remove(selectedTile);
                         flag = false;
                     }
-                    else if (x.toolType == ToolType.BLUE_DOOR && selectedTile.toolType == ToolType.BLUE_BOX)
+                    else if (tilePos.toolType == ToolType.BLUE_DOOR && selectedTile.toolType == ToolType.BLUE_BOX)
                     {
                         removeTilefromArray(selectedTile);
                         this.Controls.Remove(selectedTile);
@@ -376,8 +372,6 @@ namespace QGame
         private void btnDown_Click(object sender, EventArgs e)
         {
             bool flag = true;
-            bool redFinished = false;
-            bool blueFinished = false;
             while (flag)
             {
                 try
@@ -392,21 +386,21 @@ namespace QGame
                     //selectedTile.col = futureCol;
                     //selectedTile.updatePosition();
 
-                    Tile x = findTile(futureRow, futureCol);
-                    if (x == null)
+                    Tile tilePos = findTile(futureRow, futureCol);
+                    if (tilePos == null)
                     {
                         selectedTile.row = futureRow;
                         selectedTile.col = futureCol;
                         selectedTile.updatePosition();
                     }
 
-                    else if (x.toolType == ToolType.RED_DOOR && selectedTile.toolType == ToolType.RED_BOX)
+                    else if (tilePos.toolType == ToolType.RED_DOOR && selectedTile.toolType == ToolType.RED_BOX)
                     {
                         removeTilefromArray(selectedTile);
                         this.Controls.Remove(selectedTile);
                         flag = false;
                     }
-                    else if (x.toolType == ToolType.BLUE_DOOR && selectedTile.toolType == ToolType.BLUE_BOX)
+                    else if (tilePos.toolType == ToolType.BLUE_DOOR && selectedTile.toolType == ToolType.BLUE_BOX)
                     {
                         removeTilefromArray(selectedTile);
                         this.Controls.Remove(selectedTile);
@@ -415,7 +409,7 @@ namespace QGame
                     else
                     {
                         flag = false;
-                    } 
+                    }
                     
                 }
                 catch (NullReferenceException)

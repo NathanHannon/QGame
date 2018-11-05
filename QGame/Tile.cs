@@ -39,6 +39,7 @@ namespace QGame
         public int col;
         public ToolType toolType;
         public bool Movable = false;
+        public bool Removed = false;
 
         private const int INIT_LEFT = 100;
         private const int INIT_TOP = 100;
@@ -54,6 +55,5 @@ namespace QGame
             this.Width = WIDTH;
             this.Height = HEIGHT;
         }
-
     }
 }

@@ -22,15 +22,16 @@ namespace QGame
         /// <summary>
         /// Initial Board positions.
         /// </summary>
-        private const int InitLeft = 20;
-        private const int InitWidth = 50;
-        private const int InitHeight = 50;
-        private const int InitTop = 50;
-        private const int SquareGap = 20;
+        private const byte InitLeft = 20;
+        private const byte InitWidth = 50;
+        private const byte InitHeight = 50;
+        private const byte InitTop = 50;
+        private const byte SquareGap = 20;
 
         public static Tile[,] _square;
-        public static int _rowSqaures;
-        public static int _columnSquares;
+        public static ushort _rowSqaures;
+        public static ushort _columnSquares;
+        private static string _directoryPath = @"C:\QGame\Saves\";
         
         /// <summary>
         /// Enumeration containing Square types
@@ -39,30 +40,46 @@ namespace QGame
 
         private ToolType _tooltype = ToolType.NONE;
 
-        private SaveFileDialog saveFile = new SaveFileDialog();
+        private SaveFileDialog _saveFile = new SaveFileDialog()
+        {
+            DefaultExt = "txt",
+            Filter = "text file (*.txt)|*.txt|All files (*.*)|*.*",
+            AddExtension = true,
+            FileName = "SaveGame.txt",
+            Title = "Please select a file",
+            InitialDirectory = _directoryPath
+        };
 
         public LevelDesignForm()
         {
             InitializeComponent();
         }
 
+        private void LevelDesignForm_Load(object sender, EventArgs e)
+        {
+            if (!Directory.Exists(_directoryPath))
+            {
+                Directory.CreateDirectory(_directoryPath);
+            }
+        }
+
         /// <summary>
         /// Initializes StreamWriter for SaveFileDialog
         /// </summary>
         /// <param name="fileName"></param>
-        private void DoSave(string fileName)
+        private static void DoSave(string fileName)
         {
             StreamWriter saveFile = new StreamWriter(fileName);
             saveFile.WriteLine(_rowSqaures);
             saveFile.WriteLine(_columnSquares);
             
-            for (int i = 0; i < _rowSqaures; i++)
+            for (ushort i = 0; i < _rowSqaures; i++)
             {
-                for (int j = 0; j < _columnSquares; j++)
+                for (ushort j = 0; j < _columnSquares; j++)
                 {
                     saveFile.WriteLine(i);
                     saveFile.WriteLine(j);
-                    saveFile.WriteLine((int)_square[i, j].toolType);
+                    saveFile.WriteLine((ushort)_square[i, j].toolType);
                 }
             }
             saveFile.Close();
@@ -84,10 +101,8 @@ namespace QGame
         /// <param name="e"></param>
         private void saveLevelToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DialogResult result = saveFile.ShowDialog();
-            saveFile.Filter = @"Text Files (*.txt|*.txt)";
-            saveFile.DefaultExt = "txt";
-            saveFile.AddExtension = true;
+            DialogResult result = _saveFile.ShowDialog();
+            
             switch (result)
             {
                 case DialogResult.None:
@@ -95,7 +110,7 @@ namespace QGame
                 case DialogResult.OK:
                     try
                     {
-                        string fileName = saveFile.FileName;
+                        string fileName = _saveFile.FileName;
                         DoSave(fileName);
                     }
                     catch (Exception ex)
@@ -115,8 +130,6 @@ namespace QGame
                     break;
                 case DialogResult.No:
                     break;
-                default:
-                    break;
             }
         }
         /// <summary>
@@ -127,7 +140,7 @@ namespace QGame
         private void returnToMainMenuToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var mainMenu = new MainMenuForm();
-            this.Hide();
+            Hide();
             mainMenu.Show();
         }
         /// <summary>
@@ -140,22 +153,22 @@ namespace QGame
             try
             {
                 //Variable to hold the text for rows
-                _rowSqaures = int.Parse(txtRows.Text);
+                _rowSqaures = ushort.Parse(txtRows.Text);
                 //Variable to hold the text for columns
-                _columnSquares = int.Parse(txtColumns.Text);
+                _columnSquares = ushort.Parse(txtColumns.Text);
 
-                int xAxis = InitLeft;
-                int yAxis = InitTop;
+                ushort xAxis = InitLeft;
+                ushort yAxis = InitTop;
 
                 //Generates new picturebox array that holds the textbox numbers
                 _square = new Tile[_columnSquares, _rowSqaures];
 
                 //Generates a vertical line, with the number of squares coming from the user's input  
-                for (int r = 0; r < _rowSqaures; r++)
+                for (ushort r = 0; r < _rowSqaures; r++)
                 {
                     //Generates a horizontal line, with the number of squares coming from the user's input 
                     
-                        for (int c = 0; c < _columnSquares; c++)
+                        for (ushort c = 0; c < _columnSquares; c++)
                         {
                         _square[r, c] = new Tile();
 
@@ -223,8 +236,6 @@ namespace QGame
                     break;
                 case ToolType.YELLOW_DOOR:
                     p.Image = Properties.Resources.exit_yellow;
-                    break;
-                default:
                     break;
             }
         }

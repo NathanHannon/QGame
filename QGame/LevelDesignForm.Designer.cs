@@ -33,6 +33,7 @@ namespace QGame
             this.strpMenu = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.returnToMainMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dlgSave = new System.Windows.Forms.SaveFileDialog();
             this.txtRows = new System.Windows.Forms.TextBox();
@@ -51,7 +52,6 @@ namespace QGame
             this.btnRedSquare = new System.Windows.Forms.Button();
             this.btnBrickWall = new System.Windows.Forms.Button();
             this.btnBlank = new System.Windows.Forms.Button();
-            this.returnToMainMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.strpMenu.SuspendLayout();
             this.grpToolbox.SuspendLayout();
             this.SuspendLayout();
@@ -82,6 +82,13 @@ namespace QGame
             this.saveToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.saveToolStripMenuItem.Text = "Save Level";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveLevelToolStripMenuItem_Click);
+            // 
+            // returnToMainMenuToolStripMenuItem
+            // 
+            this.returnToMainMenuToolStripMenuItem.Name = "returnToMainMenuToolStripMenuItem";
+            this.returnToMainMenuToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.returnToMainMenuToolStripMenuItem.Text = "Return to Main Menu";
+            this.returnToMainMenuToolStripMenuItem.Click += new System.EventHandler(this.returnToMainMenuToolStripMenuItem_Click);
             // 
             // closeToolStripMenuItem
             // 
@@ -260,13 +267,6 @@ namespace QGame
             this.btnBlank.UseVisualStyleBackColor = true;
             this.btnBlank.Click += new System.EventHandler(this.btnBlank_Click);
             // 
-            // returnToMainMenuToolStripMenuItem
-            // 
-            this.returnToMainMenuToolStripMenuItem.Name = "returnToMainMenuToolStripMenuItem";
-            this.returnToMainMenuToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.returnToMainMenuToolStripMenuItem.Text = "Return to Main Menu";
-            this.returnToMainMenuToolStripMenuItem.Click += new System.EventHandler(this.returnToMainMenuToolStripMenuItem_Click);
-            // 
             // LevelDesignForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -283,6 +283,7 @@ namespace QGame
             this.MainMenuStrip = this.strpMenu;
             this.Name = "LevelDesignForm";
             this.Text = "Level Editor";
+            this.Load += new System.EventHandler(this.LevelDesignForm_Load);
             this.strpMenu.ResumeLayout(false);
             this.strpMenu.PerformLayout();
             this.grpToolbox.ResumeLayout(false);

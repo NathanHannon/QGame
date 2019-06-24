@@ -52,6 +52,7 @@ namespace QGame
             this.btnRedSquare = new System.Windows.Forms.Button();
             this.btnBrickWall = new System.Windows.Forms.Button();
             this.btnBlank = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.strpMenu.SuspendLayout();
             this.grpToolbox.SuspendLayout();
             this.SuspendLayout();
@@ -267,11 +268,21 @@ namespace QGame
             this.btnBlank.UseVisualStyleBackColor = true;
             this.btnBlank.Click += new System.EventHandler(this.btnBlank_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(403, 37);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(133, 13);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "The grid must be a square.";
+            // 
             // LevelDesignForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 559);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.grpToolbox);
             this.Controls.Add(this.btnGenerate);
             this.Controls.Add(this.lblColumns);
@@ -316,5 +327,6 @@ namespace QGame
         private System.Windows.Forms.Button btnBrickWall;
         private System.Windows.Forms.Button btnBlank;
         private ToolStripMenuItem returnToMainMenuToolStripMenuItem;
+        private Label label1;
     }
 }

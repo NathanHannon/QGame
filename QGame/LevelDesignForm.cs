@@ -145,6 +145,7 @@ namespace QGame
         /// <param name="e"></param>
         private void btnGenerate_Click(object sender, EventArgs e)
         {
+            //TODO: Add Exception for uneven row/column inputs
             try
             {
                 //Variable to hold the text for rows
@@ -165,30 +166,29 @@ namespace QGame
                     
                         for (ushort c = 0; c < _columnSquares; c++)
                         {
-                        _square[r, c] = new Tile();
+                            _square[r, c] = new Tile();
 
-                        _square[r, c].Left = xAxis + grpToolbox.Width;
-                        _square[r, c].Top = yAxis + txtColumns.Height;
-                        _square[r, c].Width = InitWidth;
-                        _square[r, c].Height = InitHeight;
-                        _square[r,c].BorderStyle = BorderStyle.FixedSingle;
-                        _square[r, c].row = r;
-                        _square[r, c].col = c;
-                        _square[r, c].toolType = ToolType.NONE;
+                            _square[r, c].Left = xAxis + grpToolbox.Width;
+                            _square[r, c].Top = yAxis + txtColumns.Height;
+                            _square[r, c].Width = InitWidth;
+                            _square[r, c].Height = InitHeight;
+                            _square[r, c].BorderStyle = BorderStyle.FixedSingle;
+                            _square[r, c].row = r;
+                            _square[r, c].col = c;
+                            _square[r, c].toolType = ToolType.NONE;
 
+                            _square[r, c].Click += square_click;
 
-                        _square[r, c].Click += square_click;
+                            Controls.Add(_square[r, c]);
 
-                       
-                        Controls.Add(_square[r, c]);
+                            yAxis += InitHeight;
 
-                        yAxis += InitHeight;
-
-                    }
+                        }
                     xAxis += InitWidth;
                     yAxis = InitTop;
                 }
             }
+
             //Checks for valid formatting, and throws an error if the input isn't a digit.
             catch (FormatException)
             {

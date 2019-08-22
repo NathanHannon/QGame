@@ -27,8 +27,8 @@ namespace QGame
         private void loadFile(string fileName)
         {
             StreamReader reader = new StreamReader(fileName);
-            numberOfRows = int.Parse(reader.ReadLine());
-            numberOfCols = int.Parse(reader.ReadLine());
+            numberOfRows = int.Parse(reader.ReadLine() ?? throw new InvalidOperationException());
+            numberOfCols = int.Parse(reader.ReadLine() ?? throw new InvalidOperationException());
             tiles = new Tile[numberOfRows, numberOfCols];
 
 
@@ -131,7 +131,7 @@ namespace QGame
             selectedTile = (Tile)sender;
         }
 
-        private void removeTilefromArray(Tile t)
+        private void RemoveTilefromArray(Tile t)
         {
             for (int i = 0; i < tiles.GetLength(0); i++)
             {
@@ -225,13 +225,13 @@ namespace QGame
 
                     else if (tilePos.toolType == ToolType.RED_DOOR && selectedTile.toolType == ToolType.RED_BOX)
                     {
-                        removeTilefromArray(selectedTile);
+                        RemoveTilefromArray(selectedTile);
                         Controls.Remove(selectedTile);
                         flag = false;
                     }
                     else if (tilePos.toolType == ToolType.BLUE_DOOR && selectedTile.toolType == ToolType.BLUE_BOX)
                     {
-                        removeTilefromArray(selectedTile);
+                        RemoveTilefromArray(selectedTile);
                         Controls.Remove(selectedTile);
                         flag = false;
                     }
@@ -276,13 +276,13 @@ namespace QGame
                     }
                     else if (tilePos.toolType == ToolType.RED_DOOR && selectedTile.toolType == ToolType.RED_BOX)
                     {
-                        removeTilefromArray(selectedTile);
+                        RemoveTilefromArray(selectedTile);
                         Controls.Remove(selectedTile);
                         flag = false;
                     }
                     else if (tilePos.toolType == ToolType.BLUE_DOOR && selectedTile.toolType == ToolType.BLUE_BOX)
                     {
-                        removeTilefromArray(selectedTile);
+                        RemoveTilefromArray(selectedTile);
                         Controls.Remove(selectedTile);
                         flag = false;
                     }
@@ -330,13 +330,13 @@ namespace QGame
 
                     else if (tilePos.toolType == ToolType.RED_DOOR && selectedTile.toolType == ToolType.RED_BOX)
                     {
-                        removeTilefromArray(selectedTile);
+                        RemoveTilefromArray(selectedTile);
                         Controls.Remove(selectedTile);
                         flag = false;
                     }
                     else if (tilePos.toolType == ToolType.BLUE_DOOR && selectedTile.toolType == ToolType.BLUE_BOX)
                     {
-                        removeTilefromArray(selectedTile);
+                        RemoveTilefromArray(selectedTile);
                         Controls.Remove(selectedTile);
                         flag = false;
                     }
@@ -382,13 +382,13 @@ namespace QGame
 
                     else if (tilePos.toolType == ToolType.RED_DOOR && selectedTile.toolType == ToolType.RED_BOX)
                     {
-                        removeTilefromArray(selectedTile);
+                        RemoveTilefromArray(selectedTile);
                         Controls.Remove(selectedTile);
                         flag = false;
                     }
                     else if (tilePos.toolType == ToolType.BLUE_DOOR && selectedTile.toolType == ToolType.BLUE_BOX)
                     {
-                        removeTilefromArray(selectedTile);
+                        RemoveTilefromArray(selectedTile);
                         Controls.Remove(selectedTile);
                         flag = false;
                     }

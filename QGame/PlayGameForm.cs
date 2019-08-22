@@ -95,9 +95,9 @@ namespace QGame
                             default:
                                 break;
                         }
-                        this.Controls.Add(t);
+                        Controls.Add(t);
                         t.Click += T_Click;
-                     }
+                    }
                 }
             }
         }
@@ -163,7 +163,7 @@ namespace QGame
         private void returnToMainMenuToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var mainMenu = new MainMenuForm();
-            this.Hide();
+            Hide();
             mainMenu.Show();
         }
         /// <summary>
@@ -194,8 +194,6 @@ namespace QGame
                     break;
                 case DialogResult.No:
                     break;
-                default:
-                    break;
             }
         }
         /// <summary>
@@ -210,9 +208,6 @@ namespace QGame
             {
                 try
                 {
-
-                    int currentRow = selectedTile.row;
-                    int currentCol = selectedTile.col;
                     int futureRow = selectedTile.row;
                     int futureCol = selectedTile.col - 1;
 
@@ -231,13 +226,13 @@ namespace QGame
                     else if (tilePos.toolType == ToolType.RED_DOOR && selectedTile.toolType == ToolType.RED_BOX)
                     {
                         removeTilefromArray(selectedTile);
-                        this.Controls.Remove(selectedTile);
+                        Controls.Remove(selectedTile);
                         flag = false;
                     }
                     else if (tilePos.toolType == ToolType.BLUE_DOOR && selectedTile.toolType == ToolType.BLUE_BOX)
                     {
                         removeTilefromArray(selectedTile);
-                        this.Controls.Remove(selectedTile);
+                        Controls.Remove(selectedTile);
                         flag = false;
                     }
                     else
@@ -265,9 +260,6 @@ namespace QGame
             {
                 try
                 {
-
-                    int currentRow = selectedTile.row;
-                    int currentCol = selectedTile.col;
                     int futureRow = selectedTile.row;
                     int futureCol = selectedTile.col + 1;
 
@@ -285,13 +277,13 @@ namespace QGame
                     else if (tilePos.toolType == ToolType.RED_DOOR && selectedTile.toolType == ToolType.RED_BOX)
                     {
                         removeTilefromArray(selectedTile);
-                        this.Controls.Remove(selectedTile);
+                        Controls.Remove(selectedTile);
                         flag = false;
                     }
                     else if (tilePos.toolType == ToolType.BLUE_DOOR && selectedTile.toolType == ToolType.BLUE_BOX)
                     {
                         removeTilefromArray(selectedTile);
-                        this.Controls.Remove(selectedTile);
+                        Controls.Remove(selectedTile);
                         flag = false;
                     }
                     else
@@ -321,9 +313,6 @@ namespace QGame
             {
                 try
                 {
-
-                    int currentRow = selectedTile.row;
-                    int currentCol = selectedTile.col;
                     int futureRow = selectedTile.row - 1;
                     int futureCol = selectedTile.col;
 
@@ -342,13 +331,13 @@ namespace QGame
                     else if (tilePos.toolType == ToolType.RED_DOOR && selectedTile.toolType == ToolType.RED_BOX)
                     {
                         removeTilefromArray(selectedTile);
-                        this.Controls.Remove(selectedTile);
+                        Controls.Remove(selectedTile);
                         flag = false;
                     }
                     else if (tilePos.toolType == ToolType.BLUE_DOOR && selectedTile.toolType == ToolType.BLUE_BOX)
                     {
                         removeTilefromArray(selectedTile);
-                        this.Controls.Remove(selectedTile);
+                        Controls.Remove(selectedTile);
                         flag = false;
                     }
                     else
@@ -376,9 +365,6 @@ namespace QGame
             {
                 try
                 {
-
-                    int currentRow = selectedTile.row;
-                    int currentCol = selectedTile.col;
                     int futureRow = selectedTile.row + 1;
                     int futureCol = selectedTile.col;
 
@@ -397,13 +383,13 @@ namespace QGame
                     else if (tilePos.toolType == ToolType.RED_DOOR && selectedTile.toolType == ToolType.RED_BOX)
                     {
                         removeTilefromArray(selectedTile);
-                        this.Controls.Remove(selectedTile);
+                        Controls.Remove(selectedTile);
                         flag = false;
                     }
                     else if (tilePos.toolType == ToolType.BLUE_DOOR && selectedTile.toolType == ToolType.BLUE_BOX)
                     {
                         removeTilefromArray(selectedTile);
-                        this.Controls.Remove(selectedTile);
+                        Controls.Remove(selectedTile);
                         flag = false;
                     }
                     else

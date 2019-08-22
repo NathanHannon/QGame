@@ -8,10 +8,11 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>QGame</RootNamespace>
     <AssemblyName>QGame</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -51,7 +52,6 @@
   <PropertyGroup>
     <ApplicationIcon>240px_q_ybO_icon.ico</ApplicationIcon>
   </PropertyGroup>
-
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
